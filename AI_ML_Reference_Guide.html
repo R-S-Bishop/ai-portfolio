@@ -251,6 +251,7 @@
         .theme-learning-loop { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
         .theme-optimization { background: linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%); }
         .theme-advanced { background: linear-gradient(135deg, #C471F5 0%, #FA71CD 100%); }
+        .theme-xai { background: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%); }
         
         .flashcard-container {
             perspective: 1500px;
@@ -555,7 +556,2188 @@
     </div>
 
     <script>
-const CARDS = [{"theme": "foundations","themeName": "AI & ML Foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","icon": "🤖💭","title": "Artificial Intelligence (AI)","subtitle": "Core Concept","definition": "The simulation of human intelligence processes by machines, especially computer systems, including learning, reasoning, and self-correction.","characteristics": ["Ability to perceive the environment","Process information and make decisions","Learn from experience","Adapt to new inputs"],"examples": ["Virtual assistants (Siri, Alexa)","Recommendation systems (Netflix, Spotify)","Autonomous vehicles","Fraud detection systems"]},{"theme": "foundations","themeName": "AI & ML Foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","icon": "🏛️🤖","title": "Foundation Models","subtitle": "Pre-trained Base Models","definition": "Large-scale models pre-trained on vast amounts of data that can be adapted to a wide variety of downstream tasks through fine-tuning or prompting. Foundation models represent a paradigm shift where a single model serves as the foundation for many applications.","characteristics": ["Trained on massive, diverse datasets (often billions of parameters)","General-purpose capabilities that transfer across tasks","Can be adapted through fine-tuning, prompting, or few-shot learning","Require significant computational resources to train initially","Enable rapid development of specialized applications"],"examples": ["GPT (text generation and understanding)","BERT (language understanding)","CLIP (vision-language understanding)","SAM (Segment Anything Model for image segmentation)","Stable Diffusion (image generation)"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🧠💡","title": "Symbolic AI","subtitle": "Good Old-Fashioned AI (GOFAI)","definition": "An approach to AI that represents knowledge using explicit symbols, rules, and logic. It manipulates these symbols through formal reasoning to solve problems and make decisions.","characteristics": ["Uses explicit rules (if-then logic)","Knowledge represented as symbols","Interpretable and transparent","Requires domain expertise to encode rules"],"examples": ["Expert systems (MYCIN for medical diagnosis)","Chess engines (early versions)","Logic programming (Prolog)"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🕸️🧠","title": "Connectionist AI","subtitle": "Neural Network Approaches","definition": "An AI approach inspired by biological neural networks, where learning emerges from the connections between simple processing units. Knowledge is distributed across network weights rather than explicit symbols.","characteristics": ["Learning from data/examples","Distributed representations","Handles noisy and incomplete data well","Often requires large datasets"],"examples": ["Neural networks and deep learning","Pattern recognition systems","Modern language models (GPT, BERT)"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🔀🤖","title": "Hybrid Approaches","subtitle": "Neuro-Symbolic AI","definition": "AI systems that combine symbolic reasoning with neural network learning, attempting to leverage the strengths of both paradigms: interpretability and logical reasoning from symbolic AI, and learning capability from connectionist approaches.","characteristics": ["Combines logic and learning","Better interpretability than pure neural nets","Can incorporate domain knowledge","Active area of research"],"examples": ["Neural Theorem Provers","Knowledge graph embeddings","Differentiable logic programming"]},{"theme": "foundations","themeName": "AI & ML Foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","icon": "🧠📊","title": "Machine Learning","subtitle": "AI Subset","definition": "A subset of AI that enables systems to learn and improve from experience without being explicitly programmed, using algorithms to identify patterns in data.","characteristics": ["Data-driven learning","Pattern recognition","Predictive modeling","Continuous improvement"],"examples": ["Email spam filtering","Credit scoring","Product recommendations","Weather forecasting"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "📊🎯","title": "Supervised Learning","subtitle": "Learning from Labeled Data","definition": "A machine learning paradigm where models learn from labeled training data (input-output pairs) to predict outputs for new, unseen inputs. The algorithm learns a mapping function from inputs to outputs.","characteristics": ["Requires labeled training data","Clear target/ground truth","Can measure accuracy directly","Used for classification and regression"],"examples": ["Image classification (cat vs dog)","Spam email detection","House price prediction","Medical diagnosis from symptoms"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🔍🎨","title": "Unsupervised Learning","subtitle": "Finding Hidden Patterns","definition": "A machine learning paradigm where models learn patterns, structures, or representations from unlabeled data without explicit target outputs. The algorithm discovers hidden structures in the input data.","characteristics": ["No labeled data required","Discovers hidden patterns","Exploratory in nature","Harder to evaluate objectively"],"examples": ["Customer segmentation (clustering)","Dimensionality reduction (PCA, t-SNE)","Anomaly detection","Topic modeling in documents"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🎮🏆","title": "Reinforcement Learning","subtitle": "Learning through Trial and Error","definition": "A machine learning paradigm where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward. The agent learns from the consequences of its actions through feedback.","characteristics": ["Learns from rewards/penalties","Sequential decision making","Explores environment through actions","Delayed feedback and credit assignment"],"examples": ["Game playing (AlphaGo, Atari games)","Robot navigation and control","Recommendation systems","Autonomous driving"]},{"theme": "foundations","themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)","themeName": "AI & ML Foundations","icon": "🧠📚","title": "Deep Learning","subtitle": "Multi-layer Neural Networks","definition": "A subset of machine learning using neural networks with multiple layers (deep architectures) to progressively extract higher-level features from raw input. Each layer learns increasingly abstract representations.","characteristics": ["Multiple hidden layers","Automatic feature learning","Requires large datasets","Computationally intensive"],"examples": ["Computer vision (CNNs)","Natural language processing (Transformers)","Speech recognition","Generative models (GANs, Diffusion)"]},{"theme": "architectures","themeName": "Neural Architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","icon": "⚡🧠","title": "Neural Network","subtitle": "Architecture","definition": "A computing system inspired by biological neural networks, consisting of interconnected nodes (neurons) that process and transmit information.","characteristics": ["Layered architecture","Weighted connections","Non-linear activation","Parallel processing"],"examples": ["Feedforward networks","Convolutional networks (CNNs)","Recurrent networks (RNNs)","Transformer architectures"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "⚡🔵","title": "Perceptron","subtitle": "The Building Block","definition": "The simplest type of artificial neural network, consisting of a single layer that takes inputs, applies weights and a bias, then passes the result through an activation function. It can only learn linearly separable patterns.","characteristics": ["Single layer architecture","Linear decision boundary","Foundation of modern neural networks","Limited to linearly separable problems"],"examples": ["Binary classification (AND, OR gates)","Simple pattern recognition","Historical milestone (Rosenblatt, 1958)","Cannot solve XOR problem"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "🖼️🔍","title": "CNN","subtitle": "Convolutional Neural Network","definition": "A specialized neural network architecture designed for processing grid-like data (images). Uses convolutional layers to automatically learn spatial hierarchies of features through local connectivity and weight sharing.","characteristics": ["Convolutional and pooling layers","Spatial hierarchy feature learning","Translation invariant","Parameter efficient through weight sharing"],"examples": ["Image classification (ResNet, VGG)","Object detection (YOLO, R-CNN)","Facial recognition","Medical image analysis"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "🔄⏰","title": "RNN","subtitle": "Recurrent Neural Network","definition": "A neural network architecture with loops that allow information to persist, making them suitable for sequential data. Each step uses both current input and hidden state from previous steps to make predictions.","characteristics": ["Processes sequences of variable length","Has memory of previous inputs","Shares parameters across time steps","Suffers from vanishing gradient problem"],"examples": ["Language modeling","Time series prediction","Speech recognition","Video analysis"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "🚪🧠","title": "LSTM / GRU","subtitle": "Advanced Recurrent Networks","definition": "Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) are RNN variants that use gating mechanisms to better capture long-range dependencies and mitigate the vanishing gradient problem.","characteristics": ["Gating mechanisms (forget, input, output)","Better long-term memory","Solves vanishing gradient issue","GRU is simpler variant of LSTM"],"examples": ["Machine translation","Text generation","Speech synthesis","Sentiment analysis"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "⚡🎯","title": "Transformers","subtitle": "Attention-Based Architecture","definition": "A neural network architecture that relies entirely on self-attention mechanisms to process sequential data in parallel, rather than recurrence. Uses positional encoding to maintain sequence order information.","characteristics": ["Self-attention mechanism","Parallel processing (not sequential)","Positional encodings","Foundation of modern LLMs"],"examples": ["GPT (generative pre-training)","BERT (bidirectional encoder)","Vision Transformers (ViT)","Translation models (T5)"]},{"theme": "architectures","themeName": "Neural Architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","icon": "👁️🔲","title": "Vision Transformers (ViT)","subtitle": "Transformers for Computer Vision","definition": "An architecture that applies the transformer model directly to sequences of image patches, treating images similarly to how transformers process text. ViTs have challenged the dominance of CNNs in computer vision tasks by demonstrating that attention mechanisms can be highly effective for visual understanding.","characteristics": ["Divides images into fixed-size patches (e.g., 16×16 pixels)","Treats image patches as tokens (like words in NLP)","Uses self-attention to capture relationships between patches","Requires large datasets or pre-training for best performance","Scales effectively with model and data size"],"examples": ["ViT (original Vision Transformer)","Swin Transformer (hierarchical vision transformer)","DeiT (Data-efficient Image Transformers)","DINO (self-supervised vision transformer)","BEiT (BERT pre-training for images)"]},{"theme": "architectures","themeName": "Neural Architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","icon": "🎯🔀","title": "Mixture of Experts (MoE)","subtitle": "Sparse Expert Networks","definition": "A neural network architecture where different sub-networks (experts) specialize in different aspects of the input space, with a gating mechanism that routes each input to the most relevant experts. This allows for massive scaling while keeping computational costs manageable by only activating a subset of the model for each input.","characteristics": ["Contains multiple expert sub-networks and a gating network","Only activates a small subset of experts per input (sparse activation)","Enables scaling to trillion-parameter models efficiently","Each expert can specialize in different patterns or tasks","Gating network learns to route inputs to appropriate experts"],"examples": ["Switch Transformers (1.6 trillion parameters)","GShard (600 billion parameter translation model)","GPT-4 (reportedly uses MoE)","Mixtral 8x7B (open-source MoE model)","Expert Choice Routing (improved gating mechanism)"]},{"theme": "architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","themeName": "Neural Architectures","icon": "🎨⚔️","title": "GANs","subtitle": "Generative Adversarial Networks","definition": "A framework consisting of two neural networks (generator and discriminator) that compete against each other. The generator creates fake data while the discriminator tries to distinguish real from fake, driving both to improve.","characteristics": ["Two networks in competition","Generator creates synthetic data","Discriminator evaluates authenticity","Training can be unstable"],"examples": ["Image generation (StyleGAN)","Deepfakes","Data augmentation","Art creation"]},{"theme": "architectures","themeName": "Neural Architectures","themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)","icon": "🔄🎨","title": "Variational Autoencoder (VAE)","subtitle": "Generative Model","definition": "A type of generative model that learns to encode data into a compressed latent representation and decode it back, enabling generation of new similar data.","characteristics": ["Encoder-decoder architecture","Learns latent space representation","Probabilistic approach","Smooth interpolation between samples"],"examples": ["Image generation and editing","Anomaly detection","Data compression","Feature learning"]},{"theme": "language","themeName": "Language AI","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","icon": "💬🔤","title": "Natural Language Processing (NLP)","subtitle": "AI Domain","definition": "A field of AI focused on enabling computers to understand, interpret, and generate human language in a valuable way.","characteristics": ["Text understanding and generation","Language translation","Sentiment analysis","Context-aware processing"],"examples": ["Chatbots and virtual assistants","Machine translation (Google Translate)","Text summarization","Speech recognition"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "🔤📦","title": "Tokenization & Embeddings","subtitle": "Converting Text to Numbers","definition": "Tokenization splits text into smaller units (tokens) like words or subwords. Embeddings convert these tokens into dense vector representations that capture semantic meaning, allowing mathematical operations on text.","characteristics": ["Tokens can be words, subwords, or characters","Embeddings map to dense vector space","Similar words have similar vectors","Foundation for all neural NLP"],"examples": ["Word2Vec (skip-gram, CBOW)","GloVe embeddings","BPE (Byte-Pair Encoding)","BERT/GPT tokenizers"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "📚🔮","title": "Language Models","subtitle": "Predicting Text Probability","definition": "Statistical or neural models that learn the probability distribution of sequences of words. They predict the likelihood of the next word given previous context, capturing grammar, semantics, and world knowledge.","characteristics": ["Assigns probabilities to word sequences","Can generate coherent text","Context-aware predictions","Foundation of modern NLP systems"],"examples": ["N-gram models (statistical)","Neural language models (RNN-based)","GPT (autoregressive)","BERT (masked language model)"]},{"theme": "language","themeName": "Language AI","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","icon": "🤖📚","title": "Large Language Model (LLM)","subtitle": "Advanced NLP","definition": "Neural networks trained on massive amounts of text data that can understand and generate human-like text, performing various language tasks without task-specific training.","characteristics": ["Billions of parameters","Pre-trained on vast text corpora","Few-shot and zero-shot learning","Emergent capabilities at scale"],"examples": ["GPT-4, Claude, Gemini","Text generation and completion","Question answering","Code generation"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "🔄💬","title": "Sequence-to-Sequence","subtitle": "Encoder-Decoder Architecture","definition": "An architecture that maps variable-length input sequences to variable-length output sequences. Consists of an encoder that processes input into a fixed representation and a decoder that generates the output sequence.","characteristics": ["Two-part architecture (encoder-decoder)","Handles variable-length inputs/outputs","Uses attention mechanisms","Core of many NLP tasks"],"examples": ["Machine translation","Text summarization","Question answering","Dialogue systems"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "🏷️👤","title": "Named Entity Recognition","subtitle": "Identifying Key Information","definition": "A task that identifies and classifies named entities (proper nouns) in text into predefined categories such as person names, organizations, locations, dates, and quantities.","characteristics": ["Sequence labeling task","Multi-class classification per token","Context-dependent","Used for information extraction"],"examples": ["Person names (Barack Obama)","Organizations (Google, UN)","Locations (London, Pacific Ocean)","Dates and times"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "😊😢","title": "Sentiment Analysis","subtitle": "Understanding Emotional Tone","definition": "The task of computationally identifying and categorizing opinions expressed in text to determine the emotional tone (positive, negative, neutral) or more nuanced emotions.","characteristics": ["Classification task","Can be binary or multi-class","Context and sarcasm are challenging","Aspect-based variants exist"],"examples": ["Product review analysis","Social media monitoring","Customer feedback analysis","Brand reputation tracking"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "🌍🔄","title": "Machine Translation","subtitle": "Automatic Language Conversion","definition": "The task of automatically converting text or speech from one language to another while preserving meaning, style, and context. Modern approaches use neural sequence-to-sequence models.","characteristics": ["Sequence-to-sequence task","Requires parallel corpora for training","Attention mechanisms crucial","Evaluation uses BLEU scores"],"examples": ["Google Translate","Statistical MT (phrase-based)","Neural MT (Transformer-based)","Zero-shot translation"]},{"theme": "language","themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)","themeName": "Language AI","icon": "❓💡","title": "Question Answering","subtitle": "Retrieving Information from Text","definition": "The task of automatically answering questions posed in natural language by extracting or generating answers from text passages or knowledge bases. Can be extractive or generative.","characteristics": ["Extractive: select span from text","Generative: create new answer","Requires reading comprehension","Context understanding critical"],"examples": ["SQuAD dataset tasks","Open-domain QA","Chatbots and assistants","Search engine snippets"]},{"theme": "vision","themeName": "Vision & Media AI","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","icon": "👁️🖼️","title": "Computer Vision","subtitle": "AI Domain","definition": "A field of AI that enables computers to derive meaningful information from visual inputs like images and videos, mimicking human vision capabilities.","characteristics": ["Image recognition and classification","Object detection and tracking","Scene understanding","Visual feature extraction"],"examples": ["Facial recognition systems","Autonomous vehicle perception","Medical image analysis","Quality control in manufacturing"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "📦🎯","title": "Object Detection","subtitle": "Locating Objects in Images","definition": "A computer vision task that identifies and localizes multiple objects within an image by drawing bounding boxes around them and classifying each detected object into predefined categories.","characteristics": ["Combines classification and localization","Outputs bounding boxes and class labels","Real-time variants exist","Handles multiple objects per image"],"examples": ["YOLO (You Only Look Once)","R-CNN family (Fast R-CNN, Faster R-CNN)","Self-driving car perception","Retail inventory tracking"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "✂️🖼️","title": "Image Segmentation","subtitle": "Pixel-Level Classification","definition": "A computer vision task that partitions an image into multiple segments by classifying each pixel. Semantic segmentation assigns class labels to pixels, while instance segmentation distinguishes individual object instances.","characteristics": ["Pixel-wise classification","Semantic vs instance segmentation","Dense prediction task","More detailed than bounding boxes"],"examples": ["U-Net (medical imaging)","Mask R-CNN (instance segmentation)","Autonomous driving (road scene)","Background removal tools"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "🎨🖌️","title": "Style Transfer","subtitle": "Artistic Image Transformation","definition": "A technique that applies the artistic style of one image (style image) to the content of another image (content image), creating a new image that combines both. Uses neural networks to separate and recombine content and style.","characteristics": ["Separates content and style","Uses pre-trained CNNs","Real-time variants exist","Artistic and creative applications"],"examples": ["Neural Style Transfer","Photo filters and effects","Artistic rendering","Video stylization"]},{"theme": "vision","themeName": "Vision & Media AI","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","icon": "🎨✨","title": "Generative AI","subtitle": "AI Capability","definition": "AI systems that can create new content (text, images, audio, video, code) by learning patterns from training data and generating novel outputs.","characteristics": ["Creates original content","Learns from large datasets","Multiple modalities (text, image, audio)","Controllable via prompts"],"examples": ["ChatGPT for text generation","DALL-E, Midjourney for images","GitHub Copilot for code","Suno AI for music"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "🎨✨","title": "Diffusion Models","subtitle": "Advanced Generative Models","definition": "Generative models that learn to create images by gradually denoising random noise through a learned reverse diffusion process. They iteratively refine noise into coherent images guided by text or other conditions.","characteristics": ["Iterative denoising process","High-quality image generation","Text-to-image capabilities","More stable training than GANs"],"examples": ["Stable Diffusion","DALL-E 2 and 3","Midjourney","Image editing and inpainting"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "🎤📝","title": "Speech Recognition","subtitle": "Converting Speech to Text","definition": "The task of automatically converting spoken language into written text. Modern systems use deep learning to map audio waveforms or spectral features directly to text transcriptions.","characteristics": ["Audio to text conversion","Handles accents and noise","Real-time processing possible","Language model integration"],"examples": ["Whisper (OpenAI)","Voice assistants (Siri, Alexa)","Transcription services","Dictation software"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "🎵📊","title": "Audio Processing","subtitle": "Analyzing Sound Data","definition": "The computational analysis and transformation of audio signals. Includes converting waveforms to spectrograms (visual representations) and extracting features like mel-frequency cepstral coefficients for downstream tasks.","characteristics": ["Spectrograms visualize frequency over time","Mel-scale mimics human hearing","Time-frequency representations","Preprocessing for audio ML"],"examples": ["Speech recognition preprocessing","Music genre classification","Audio event detection","Voice activity detection"]},{"theme": "vision","themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)","themeName": "Vision & Media AI","icon": "🎬⏱️","title": "Video Understanding","subtitle": "Temporal Visual Analysis","definition": "The task of extracting meaningful information from video sequences by analyzing both spatial (within frames) and temporal (across frames) patterns. Includes action recognition, video classification, and event detection.","characteristics": ["Combines spatial and temporal analysis","3D convolutions or frame sequences","Computationally expensive","Requires temporal modeling"],"examples": ["Action recognition (sports analysis)","Video surveillance","Video summarization","Gesture recognition"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "📈📏","title": "Linear Regression","subtitle": "Predicting Continuous Values","definition": "A statistical method that models the relationship between a dependent variable and one or more independent variables using a linear equation. Forms the foundation for many ML algorithms.","characteristics": ["Predicts continuous outcomes","Simple, interpretable model","Assumes linear relationship","Least squares optimization"],"examples": ["House price prediction","Sales forecasting","Trend analysis","Feature importance analysis"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "📊🎲","title": "Logistic Regression","subtitle": "Classification via Probability","definition": "A statistical method for binary classification that uses the logistic (sigmoid) function to model the probability of an outcome. Despite its name, it is used for classification, not regression.","characteristics": ["Outputs probabilities (0 to 1)","Linear decision boundary","Binary or multi-class classification","Interpretable coefficients"],"examples": ["Medical diagnosis (disease present/absent)","Email spam detection","Customer churn prediction","Credit default risk"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "🎯🔄","title": "Bayesian Methods","subtitle": "Probabilistic Reasoning","definition": "Statistical approaches based on Bayes theorem that update probability estimates as new evidence becomes available. Combines prior knowledge with observed data to make predictions.","characteristics": ["Incorporates prior knowledge","Updates beliefs with evidence","Probabilistic predictions","Handles uncertainty explicitly"],"examples": ["Spam filtering (Naive Bayes)","Medical diagnosis","A/B testing","Probabilistic graphing models"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "🔍📉","title": "Principal Component Analysis","subtitle": "Dimensionality Reduction","definition": "A statistical technique that transforms high-dimensional data into a lower-dimensional space by finding principal components (directions of maximum variance). Used for dimensionality reduction and feature extraction.","characteristics": ["Reduces data dimensions","Preserves maximum variance","Creates uncorrelated features","Useful for visualization"],"examples": ["Data compression","Noise reduction","Feature extraction before ML","Exploratory data analysis"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "🌳📋","title": "Decision Trees","subtitle": "Rule-Based Classification","definition": "A statistical/ML model that makes decisions by learning simple decision rules from data features. Creates a tree structure where each internal node represents a test on a feature, and each leaf represents a decision.","characteristics": ["Easy to interpret and visualize","Handles non-linear relationships","No data normalization needed","Can overfit without pruning"],"examples": ["Credit approval decisions","Medical diagnosis systems","Customer segmentation","Feature importance ranking"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "📈🎯","title": "Maximum Likelihood Estimation","subtitle": "Parameter Optimization","definition": "A statistical method for estimating the parameters of a probability distribution by maximizing the likelihood function. It finds parameter values that make the observed data most probable.","characteristics": ["Foundational estimation method","Used to train many ML models","Provides parameter confidence intervals","Asymptotically optimal"],"examples": ["Training logistic regression","Fitting probability distributions","Estimating neural network weights","Statistical inference"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "🌲🌲","title": "Random Forests","subtitle": "Ensemble Decision Trees","definition": "An ensemble learning method that builds multiple decision trees during training and outputs the mode (classification) or mean (regression) of their predictions. Each tree is trained on a random subset of data and features.","characteristics": ["Reduces overfitting vs single trees","Handles high-dimensional data well","Provides feature importance rankings","Robust to outliers and noise"],"examples": ["Credit scoring","Medical diagnosis","Stock market prediction","Feature selection"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "⚖️✂️","title": "Support Vector Machines","subtitle": "Maximum Margin Classifier","definition": "A supervised learning algorithm that finds the optimal hyperplane that maximally separates classes in high-dimensional space. Uses kernel functions to handle non-linear decision boundaries.","characteristics": ["Effective in high-dimensional spaces","Memory efficient (uses support vectors)","Versatile through different kernels","Works well with clear class separation"],"examples": ["Image classification","Text categorization","Bioinformatics","Handwriting recognition"]},{"theme": "classical","themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)","themeName": "Classical Methods","icon": "👥📏","title": "K-Nearest Neighbors","subtitle": "Instance-Based Learning","definition": "A non-parametric algorithm that classifies data points based on the majority class of their k nearest neighbors in feature space. Makes no assumptions about data distribution and is a lazy learner.","characteristics": ["Simple, intuitive algorithm","No training phase (lazy learning)","Sensitive to feature scaling","Computationally expensive at prediction"],"examples": ["Recommendation systems","Pattern recognition","Anomaly detection","Missing value imputation"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🧹📊","title": "Data Preprocessing","subtitle": "Preparing Data for Training","definition": "The process of cleaning, transforming, and organizing raw data into a format suitable for machine learning models. Includes handling missing values, normalization, and removing outliers.","characteristics": ["Handles missing/corrupt data","Normalization and scaling","Outlier detection and removal","Data type conversions"],"examples": ["Filling missing values with mean/median","Min-max scaling features to 0-1 range","Removing duplicate records","Converting categorical to numerical data"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🔧⚙️","title": "Feature Engineering","subtitle": "Creating Meaningful Features","definition": "The process of using domain knowledge to extract or create features from raw data that make machine learning algorithms work better. Transforms raw data into informative representations.","characteristics": ["Domain knowledge driven","Creates new features from existing ones","Can improve model performance significantly","Includes feature selection and extraction"],"examples": ["Creating age from birthdate","Combining height and weight into BMI","Extracting day-of-week from timestamps","One-hot encoding categorical variables"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "📸🔄","title": "Data Augmentation","subtitle": "Artificially Expanding Datasets","definition": "Techniques to artificially increase the size and diversity of training data by creating modified versions of existing data. Particularly important when training data is limited.","characteristics": ["Increases dataset size artificially","Improves model generalization","Prevents overfitting","Domain-specific techniques"],"examples": ["Image rotation, flipping, cropping","Text paraphrasing and synonym replacement","Audio pitch shifting and time stretching","Adding noise to numerical data"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "✂️📂","title": "Train/Validation/Test Split","subtitle": "Dividing Data for Evaluation","definition": "The practice of dividing a dataset into separate subsets for training the model, tuning hyperparameters (validation), and final evaluation (test). Essential for assessing true model performance.","characteristics": ["Typically 70/15/15 or 80/10/10 split","Training set: learn patterns","Validation set: tune hyperparameters","Test set: final performance evaluation"],"examples": ["Stratified split for imbalanced data","Time-based split for time series","K-fold cross-validation","Holdout validation"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🧱🔗","title": "Layers & Neurons","subtitle": "Network Architecture Components","definition": "The fundamental building blocks of neural networks. Layers are collections of neurons that process input and pass output to the next layer. Different layer types serve different purposes.","characteristics": ["Dense layers: fully connected neurons","Convolutional layers: for spatial data","Pooling layers: downsampling","Recurrent layers: for sequences"],"examples": ["Dense layer in feedforward networks","Conv2D layers in image classifiers","MaxPooling in CNNs","LSTM layers in sequence models"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "⚡🎚️","title": "Activation Functions","subtitle": "Introducing Non-linearity","definition": "Mathematical functions applied to neuron outputs that introduce non-linearity into neural networks. They determine whether a neuron should be activated based on weighted input.","characteristics": ["ReLU: most common, avoids vanishing gradients","Sigmoid: outputs 0-1, used in binary classification","Tanh: outputs -1 to 1, zero-centered","Softmax: used for multi-class output layers"],"examples": ["ReLU in hidden layers of CNNs","Sigmoid in binary classification output","Tanh in LSTM gates","Softmax in multi-class classification"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "📉🎯","title": "Loss Functions","subtitle": "Measuring Model Error","definition": "Mathematical functions that measure how far model predictions are from actual values. The training process minimizes the loss function to improve model accuracy.","characteristics": ["Cross-entropy for classification","Mean Squared Error (MSE) for regression","Mean Absolute Error (MAE) for regression","Guides the learning process"],"examples": ["Binary cross-entropy for spam detection","Categorical cross-entropy for image classification","MSE for house price prediction","Huber loss for robust regression"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "⬅️📈","title": "Backpropagation","subtitle": "Learning Algorithm","definition": "An algorithm for efficiently computing gradients of the loss function with respect to network weights by applying the chain rule backwards through the network.","characteristics": ["Computes gradients efficiently","Uses chain rule from calculus","Enables gradient descent optimization","Foundation of modern deep learning"],"examples": ["Training feedforward neural networks","Training CNNs and RNNs","End-to-end learning"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "⛰️⬇️","title": "Gradient Descent","subtitle": "Optimization Algorithm","definition": "An iterative optimization algorithm that finds the minimum of a function by taking steps proportional to the negative of the gradient. Used to minimize the loss function during model training.","characteristics": ["Iterative optimization process","Follows direction of steepest descent","Variants: SGD, mini-batch, Adam","Learning rate controls step size"],"examples": ["Training linear regression","Optimizing neural network weights","SGD in deep learning","Adam optimizer in Transformers"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🎛️⚙️","title": "Optimizers","subtitle": "Updating Model Weights","definition": "Algorithms that adjust neural network weights to minimize the loss function. Different optimizers use various strategies to navigate the loss landscape efficiently.","characteristics": ["SGD: simple, momentum variants","Adam: adaptive learning rates","RMSprop: good for RNNs","Learning rate is crucial parameter"],"examples": ["Adam for transformer training","SGD with momentum for CNNs","RMSprop for recurrent networks","AdaGrad for sparse data"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🎚️📈","title": "Learning Rate","subtitle": "Controlling Weight Updates","definition": "A hyperparameter that controls how much model weights change in response to the estimated error. Too high causes instability, too low causes slow learning.","characteristics": ["Controls speed of learning","Typically 0.001 to 0.1","Can be scheduled/adaptive","Critical for convergence"],"examples": ["Fixed learning rate (0.001)","Learning rate decay over time","Cyclical learning rates","Warm-up then decay schedule"]},{"theme": "training","themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)","themeName": "Data & Training","icon": "🔄📦","title": "Epochs & Batches","subtitle": "Organizing Training","definition": "An epoch is one complete pass through the entire training dataset. Data is processed in batches (mini-batches) rather than all at once for computational efficiency.","characteristics": ["Epoch: full dataset pass","Batch: subset processed together","Batch size affects memory and speed","Multiple epochs for convergence"],"examples": ["Training for 100 epochs","Batch size of 32 images","Mini-batch gradient descent","Batch size 1 = stochastic gradient descent"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "📊🔄","title": "DATA in ML","subtitle": "Foundation of Learning","definition": "Raw information represented as points in geometric space. Each data point becomes a vector (e.g., patient = [age, BMI]) that serves as input to calculate error and guide learning.","characteristics": ["Vectors: Represent data as points in space","Calculus: Provide inputs to error function","Result: Numbers become geometry","Enable distance measurements from decision boundaries"],"examples": ["Patient [45, 32] as point in 2D space","House [bedrooms=3, sqft=2000] as vector","Image as 400-dimensional vector (20×20 pixels)","Text embeddings as high-dimensional points"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "⚖️📐","title": "WEIGHTS in ML","subtitle": "Learnable Parameters","definition": "A vector that points toward the positive class and defines the orientation of the hyperplane that separates classes. These are the parameters that learning algorithms optimize to minimize error.","characteristics": ["Vectors: Point toward positive class","Calculus: The parameters we optimize","Result: Learnable decision boundary","Learning rotates this vector to minimize error"],"examples": ["w = [2.5, 1.5] defines line separating obese/not-obese","400 weights for Mark I Perceptron (20×20 pixels)","Billions of weights in modern neural networks","Changing w rotates the decision boundary"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "🎯📏","title": "PREDICTION in ML","subtitle": "Making Classifications","definition": "Computing the dot product w^T x to measure signed distance from the decision boundary. The sign determines which side of the hyperplane a point lies on, producing the classification.","characteristics": ["Vectors: Dot product measures distance","Calculus: Not directly involved (pure geometry)","Result: Classification decision","Positive = one class, negative = other class"],"examples": ["w^T x = +3.5 → predict 'obese' (positive side)","w^T x = -2.1 → predict 'not obese' (negative side)","w^T x = 0 → on the boundary (uncertain)","Magnitude shows confidence in prediction"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "❌📊","title": "ERROR in ML","subtitle": "Quantifying Mistakes","definition": "The difference between predicted and actual outputs. As a vector, it shows which predictions are wrong. As a function of weights, it creates an optimization landscape that calculus can navigate.","characteristics": ["Vectors: Difference between predicted and actual","Calculus: Function to minimize (creates landscape)","Result: Quantifies mistakes","Mean Squared Error is common metric"],"examples": ["MSE = 2.0 means we're making mistakes","Error vector = [2, 0, 0, 2] for 4 data points","Goal: Reduce MSE to ≈ 0 through learning","Creates 3D 'bowl' surface to descend"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "🧭⬇️","title": "LEARNING in ML","subtitle": "Finding the Direction","definition": "Using calculus to compute the gradient (direction of steepest error increase), then moving weights in the opposite direction. This automatic process drives improvement without human intervention.","characteristics": ["Vectors: Defines direction to move weights","Calculus: Gradient shows steepest ascent","Result: Automatic improvement","Move opposite to gradient = descend toward minimum"],"examples": ["Gradient = [-3.2, -4.8] points uphill","Move opposite: toward [+3.2, +4.8]","No human decides direction—calculus does","Repeated updates converge to solution"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "🔄➖","title": "UPDATE in ML","subtitle": "Adjusting Parameters","definition": "The fundamental operation: New weights = Old weights - Step × Gradient. Vector subtraction guided by calculus-derived direction. This single formula drives learning across all neural networks.","characteristics": ["Vectors: Subtract one vector from another","Calculus: Use derivative for step size/direction","Result: New = Old - Step×Gradient","Universal formula from perceptron to GPT"],"examples": ["[1.0, 0.5] - 0.01×[-3.2, -4.8] = [1.032, 0.548]","Perceptron: w_new = w_old + yx","Gradient descent: x_new = x_old - η×gradient","LMS/Widrow-Hoff: w_new = w_old + 2μεx"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "🔁🎯","title": "The Complete Learning Loop","subtitle": "How ML Works End-to-End","definition": "The six-stage cycle that enables machine learning: DATA provides geometry → WEIGHTS define boundary → PREDICTION classifies → ERROR quantifies mistakes → LEARNING finds direction → UPDATE adjusts weights → repeat until error ≈ 0.","characteristics": ["DATA: Numbers become geometric points","WEIGHTS: Learnable decision boundary","PREDICTION: Dot product classification","ERROR: Optimization landscape","LEARNING: Gradient-based direction","UPDATE: Vector arithmetic adjustment"],"examples": ["Perceptron learns in ~100 iterations","Deep networks may need millions of iterations","Each loop reduces error incrementally","Convergence theorem guarantees solution (if linearly separable)"]},{"theme": "learning_loop","themeName": "The Learning Loop","themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)","icon": "🔬🔗","title": "Why Vectors AND Calculus?","subtitle": "The Essential Interplay","definition": "Vectors alone can represent problems geometrically but can't solve them automatically. Calculus alone can optimize 1D functions but can't handle high-dimensional data. Together: geometric representation (vectors) + automatic optimization (calculus) = machine learning.","characteristics": ["Vectors provide: Representation, generalization, efficiency","Calculus provides: Optimization, navigation, convergence","Together enable: Automatic learning, scalability, guarantees","Update rule w - η∇Error combines both"],"examples": ["Works for 2 weights or 175 billion (GPT-3)","Perceptron convergence theorem (1958) proved this","Same principles: 1960s ADALINE to 2020s transformers","Vector-calculus synergy is foundation of all modern ML"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "➡️🔮","title": "Forward Pass","subtitle": "Data Flow Through Network","definition": "The process where input data flows through the network from input layer to output layer, with each layer transforming the data using weights, biases, and activation functions to produce predictions.","characteristics": ["Input Input → Hidden layers → Output","Applies learned weights and biases","Uses activation functions","Produces predictions"],"examples": ["Image passing through CNN layers","Text through transformer encoder","Audio through RNN layers","Tabular data through dense layers"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "🛡️🎯","title": "Regularization","subtitle": "Preventing Overfitting","definition": "Techniques that constrain or add penalties to model complexity to prevent overfitting. Helps models generalize better to unseen data by discouraging overly complex patterns.","characteristics": ["Dropout: randomly deactivates neurons","L1 regularization: encourages sparsity","L2 regularization: penalizes large weights","Early stopping: stops before overfitting"],"examples": ["Dropout layers with 0.5 probability","L2 regularization in linear models","L1 for feature selection","Stopping training when validation loss increases"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "⚖️📊","title": "Batch Normalization","subtitle": "Stabilizing Training","definition": "A technique that normalizes layer inputs by adjusting and scaling activations. It stabilizes learning, allows higher learning rates, and reduces sensitivity to initialization.","characteristics": ["Normalizes activations between layers","Reduces internal covariate shift","Allows faster training","Acts as regularization"],"examples": ["After convolutional layers in CNNs","Before activation functions","In ResNet architectures","Deep network training"]},{"theme": "optimization","themeName": "Optimization & Deployment","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","icon": "📈❌","title": "Overfitting","subtitle": "Training Problem","definition": "When a model learns the training data too well, including noise and random fluctuations, resulting in poor performance on new, unseen data.","characteristics": ["High training accuracy, low test accuracy","Model memorizes rather than generalizes","Too complex for the data","Poor real-world performance"],"examples": ["Decision tree memorizing training set","Neural network with too many parameters","Polynomial regression with high degree","Model performs well in lab, fails in production"]},{"theme": "optimization","themeName": "Optimization & Deployment","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","icon": "📉❌","title": "Underfitting","subtitle": "Training Problem","definition": "When a model is too simple to capture the underlying patterns in the data, resulting in poor performance on both training and test data.","characteristics": ["Low training and test accuracy","Model too simple for the problem","Fails to capture data patterns","High bias"],"examples": ["Linear model for non-linear data","Shallow neural network for complex task","Insufficient training time","Too few features"]},{"theme": "optimization","themeName": "Optimization & Deployment","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","icon": "⚖️🎯","title": "Bias-Variance Tradeoff","subtitle": "Model Balance","definition": "The fundamental tradeoff in machine learning between a model's bias (error from wrong assumptions) and variance (error from sensitivity to training data fluctuations).","characteristics": ["High bias = underfitting","High variance = overfitting","Need to balance both","Central to model selection"],"examples": ["Simple model (high bias, low variance)","Complex model (low bias, high variance)","Optimal model balances both","Regularization manages tradeoff"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "🚀💭","title": "Model Inference","subtitle": "Making Predictions","definition": "The process of using a trained model to make predictions on new, unseen data. The forward pass is executed without updating weights, typically optimized for speed.","characteristics": ["No weight updates","Faster than training","Can be optimized/quantized","Real-time or batch processing"],"examples": ["Classifying new images","Generating text responses","Real-time object detection","Batch prediction on dataset"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "📦⚡","title": "Model Compression","subtitle": "Optimizing for Deployment","definition": "Techniques to reduce model size and computational requirements while maintaining performance. Essential for deploying models on resource-constrained devices.","characteristics": ["Quantization: reduce precision","Pruning: remove unnecessary weights","Knowledge distillation: smaller student model","Mobile-optimized architectures"],"examples": ["8-bit quantization for mobile","Pruning 50% of weights","TensorFlow Lite models","ONNX runtime optimization"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "🔬⚖️","title": "A/B Testing for Models","subtitle": "Comparing in Production","definition": "A controlled experiment where two model versions are deployed simultaneously to different user groups. Compares performance metrics to determine which model performs better in real-world conditions.","characteristics": ["Compares two model versions","Uses real user data","Statistical significance testing","Measures business metrics"],"examples": ["Testing new recommendation algorithm","Comparing translation model versions","Testing fraud detection improvements","Evaluating search ranking changes"]},{"theme": "optimization","themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)","themeName": "Optimization & Deployment","icon": "🔄✅","title": "Cross-Validation","subtitle": "Model Evaluation Technique","definition": "A resampling technique used to assess how well a model generalizes to unseen data by partitioning data into complementary subsets, training on some subsets and validating on others.","characteristics": ["Reduces overfitting assessment bias","Better use of limited data","K-fold is most common variant","More computationally expensive"],"examples": ["K-fold cross-validation","Leave-one-out cross-validation","Stratified cross-validation","Time-series cross-validation"]},{"theme": "advanced","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","themeName": "Advanced Techniques","icon": "👁️🎯","title": "Attention Mechanism","subtitle": "Selective Focus","definition": "A technique that allows neural networks to dynamically focus on different parts of the input when producing each part of the output. It learns which inputs are most relevant for each prediction.","characteristics": ["Dynamic importance weighting","Captures long-range dependencies","Foundation of Transformers","Improves interpretability"],"examples": ["Transformer models (GPT, BERT)","Machine translation","Image captioning","Self-attention in language models"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🎯🔧","title": "Fine-tuning","subtitle": "Transfer Learning","definition": "The process of taking a pre-trained model and further training it on a specific task or domain, adapting its learned knowledge to new specialized applications.","characteristics": ["Starts with pre-trained model","Requires less data than training from scratch","Task-specific adaptation","Faster than full training"],"examples": ["Fine-tuning BERT for sentiment analysis","Adapting GPT for customer support","Medical image classifier from ImageNet","Domain-specific chatbots"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "💬✍️","title": "Prompt Engineering","subtitle": "LLM Technique","definition": "The practice of carefully designing and optimizing text prompts to elicit desired responses from large language models, maximizing their effectiveness.","characteristics": ["Crafts clear instructions","Provides context and examples","Iterative refinement","Task-specific formatting"],"examples": ["Zero-shot prompts (direct questions)","Few-shot prompts (with examples)","Chain-of-thought prompting","System prompts and role assignment"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🔍📚","title": "Retrieval-Augmented Generation (RAG)","subtitle": "LLM Enhancement","definition": "A technique that enhances language models by retrieving relevant information from external knowledge sources before generating responses, improving accuracy and reducing hallucinations.","characteristics": ["Combines retrieval and generation","Accesses external knowledge bases","Reduces hallucinations","Provides source citations"],"examples": ["Question answering with document search","Chatbots with company knowledge bases","Research assistants","Customer support with FAQs"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🎓⚡","title": "Few-Shot Learning","subtitle": "Learning Paradigm","definition": "A machine learning approach where models learn to perform new tasks with only a few training examples, leveraging prior knowledge from related tasks.","characteristics": ["Requires minimal training data","Leverages transfer learning","Rapid task adaptation","Meta-learning approaches"],"examples": ["GPT models with example prompts","Image classification with few examples","One-shot object recognition","Quick adaptation to new languages"]},{"theme": "advanced","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","themeName": "Advanced Techniques","icon": "📊❌","title": "Confusion Matrix","subtitle": "Classification Performance Table","definition": "A table used to evaluate classification model performance by showing the counts of true positives, true negatives, false positives, and false negatives.","characteristics": ["Shows all prediction outcomes","Basis for many metrics","Especially useful for imbalanced data","Visualizes error types"],"examples": ["Binary classification evaluation","Multi-class classification","Medical test performance","Spam detection assessment"]},{"theme": "advanced","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","themeName": "Advanced Techniques","icon": "🎯⚖️","title": "Precision & Recall","subtitle": "Classification Metrics","definition": "Precision measures the proportion of positive predictions that are actually correct. Recall measures the proportion of actual positives that were correctly identified.","characteristics": ["Precision: quality of positive predictions","Recall: coverage of actual positives","Trade-off between the two","F1-score combines both harmonically"],"examples": ["Information retrieval systems","Medical diagnosis (recall critical)","Fraud detection (precision critical)","Search engine evaluation"]},{"theme": "advanced","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","themeName": "Advanced Techniques","icon": "⚖️💯","title": "F1-Score","subtitle": "Balanced Performance Metric","definition": "The harmonic mean of precision and recall that provides a single score balancing both metrics. Particularly useful when you need to balance false positives and false negatives, or when dealing with imbalanced classes.","characteristics": ["Range: 0 to 1 (higher is better)","Harmonic mean balances P and R","Useful for imbalanced datasets","F1 = 2×(P×R)/(P+R)"],"examples": ["Medical diagnosis evaluation","Spam detection performance","Information retrieval systems","Multi-class classification benchmarks"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🔄📚","title": "Transfer Learning","subtitle": "Leveraging Pre-trained Knowledge","definition": "The practice of taking a model trained on one task and reusing it as the starting point for a model on a second, related task. Transfer learning leverages knowledge gained from abundant data in one domain to improve performance on tasks where data may be limited.","characteristics": ["Uses pre-trained models as feature extractors or starting points","Significantly reduces training time and data requirements","Works best when source and target tasks are related","Can freeze early layers and fine-tune later layers","Core principle behind modern AI development"],"examples": ["Using ImageNet pre-trained CNNs for medical imaging","Fine-tuning BERT for sentiment analysis","Adapting GPT for domain-specific text generation","Transfer from synthetic to real-world data","Cross-lingual transfer in NLP"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "⚖️🔍","title": "Contrastive Learning","subtitle": "Learning by Comparison","definition": "A self-supervised learning approach that teaches models to distinguish between similar and dissimilar examples by pulling together representations of similar items and pushing apart representations of different items in the embedding space. This technique enables learning powerful representations without labeled data.","characteristics": ["Learns by comparing positive pairs (similar) vs negative pairs (dissimilar)","Creates semantically meaningful embeddings","Enables self-supervised pre-training without labels","Powers many modern vision and language models","Particularly effective for representation learning"],"examples": ["CLIP (Contrastive Language-Image Pre-training)","SimCLR (self-supervised visual representations)","MoCo (Momentum Contrast)","Sentence-BERT (sentence embeddings)","Triplet loss in face recognition"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🤖⚙️","title": "Agentic AI","subtitle": "Autonomous AI Systems","definition": "AI systems capable of autonomous goal-directed behavior, including planning, reasoning, tool use, and taking actions in environments. Agentic AI can break down complex tasks, use external tools and APIs, maintain memory of past interactions, and iteratively work toward objectives with minimal human intervention.","characteristics": ["Can plan multi-step solutions to achieve goals","Uses tools and APIs to extend capabilities (function calling)","Maintains context and memory across interactions","Reasons about actions and their consequences","Can self-critique and refine approaches iteratively"],"examples": ["AutoGPT (autonomous task completion)","LangChain agents (orchestrating LLM capabilities)","ReAct (reasoning + acting framework)","Function calling in GPT-4/Claude","BabyAGI (autonomous task management)"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🌐🎨","title": "Multimodal AI","subtitle": "Cross-Modal Understanding","definition": "AI systems that can process, understand, and generate content across multiple modalities such as text, images, audio, and video. Multimodal models learn joint representations that capture relationships between different types of data, enabling tasks like image captioning, visual question answering, and text-to-image generation.","characteristics": ["Processes multiple types of input (text, image, audio, video)","Learns shared representations across modalities","Can translate between different modalities","Enables richer, more natural human-AI interaction","Powers next-generation AI applications"],"examples": ["GPT-4 Vision (text + image understanding)","CLIP (vision-language model)","Gemini (native multimodal model)","Flamingo (few-shot vision-language learning)","Whisper + GPT (audio transcription + language)"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "👍🎯","title": "RLHF","subtitle": "Reinforcement Learning from Human Feedback","definition": "A training technique that uses human preferences to guide AI behavior by having humans rank or rate model outputs, then training the model to maximize alignment with these preferences. RLHF is crucial for creating helpful, harmless, and honest AI assistants.","characteristics": ["Trains reward models from human preference comparisons","Uses reinforcement learning (PPO) to optimize for human preferences","Aligns model behavior with human values and intentions","Three-stage process: supervised fine-tuning, reward modeling, RL optimization","Reduces harmful, biased, or unhelpful outputs"],"examples": ["InstructGPT and ChatGPT training","Claude's Constitutional AI with human feedback","Llama 2 Chat models","Anthropic's HH-RLHF dataset","Preference learning in robotics"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🎯🛡️","title": "AI Alignment","subtitle": "Value Alignment & Safety","definition": "The research field focused on ensuring AI systems behave in accordance with human values, intentions, and safety requirements. Alignment addresses the challenge of creating powerful AI that remains beneficial and controllable as capabilities increase, preventing unintended harmful behaviors.","characteristics": ["Ensures AI systems pursue intended goals safely","Addresses challenges of specification, robustness, and scalability","Combines technical and philosophical approaches","Includes interpretability, robustness, and value learning","Critical for deploying increasingly powerful AI systems"],"examples": ["RLHF (aligning with human preferences)","Constitutional AI (built-in principles)","Red teaming (adversarial testing)","Interpretability research (understanding model behavior)","Scalable oversight techniques"]},{"theme": "advanced","themeName": "Advanced Techniques","themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)","icon": "🌀❌","title": "Hallucinations & Mitigation","subtitle": "Managing AI Factual Errors","definition": "Hallucinations occur when AI models generate information that is plausible-sounding but factually incorrect or nonsensical. This is a critical challenge in deploying LLMs, and various mitigation techniques help reduce hallucinations and increase reliability in production systems.","characteristics": ["Models confidently state false information as fact","Can occur from training data gaps or model limitations","More frequent when model lacks knowledge or is uncertain","Major barrier to trust in AI-generated content","Requires multiple strategies to mitigate effectively"],"examples": ["RAG (Retrieval-Augmented Generation) for grounding in facts","Citation requirements for AI responses","Confidence scoring and uncertainty quantification","Fact-checking layers in production systems","Chain-of-verification prompting techniques"]}];
+const CARDS = [
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🤖💭",
+                "title": "Artificial Intelligence (AI)",
+                "subtitle": "Core Concept",
+                "definition": "The simulation of human intelligence processes by machines, especially computer systems, including learning, reasoning, and self-correction.",
+                "characteristics": [
+                        "Ability to perceive the environment",
+                        "Process information and make decisions",
+                        "Learn from experience",
+                        "Adapt to new inputs"
+                ],
+                "examples": [
+                        "Virtual assistants (Siri, Alexa)",
+                        "Recommendation systems (Netflix, Spotify)",
+                        "Autonomous vehicles",
+                        "Fraud detection systems"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🏛️🤖",
+                "title": "Foundation Models",
+                "subtitle": "Pre-trained Base Models",
+                "definition": "Large-scale models pre-trained on vast amounts of data that can be adapted to a wide variety of downstream tasks through fine-tuning or prompting. Foundation models represent a paradigm shift where a single model serves as the foundation for many applications.",
+                "characteristics": [
+                        "Trained on massive, diverse datasets (often billions of parameters)",
+                        "General-purpose capabilities that transfer across tasks",
+                        "Can be adapted through fine-tuning, prompting, or few-shot learning",
+                        "Require significant computational resources to train initially",
+                        "Enable rapid development of specialized applications"
+                ],
+                "examples": [
+                        "GPT (text generation and understanding)",
+                        "BERT (language understanding)",
+                        "CLIP (vision-language understanding)",
+                        "SAM (Segment Anything Model for image segmentation)",
+                        "Stable Diffusion (image generation)"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🧠💡",
+                "title": "Symbolic AI",
+                "subtitle": "Good Old-Fashioned AI (GOFAI)",
+                "definition": "An approach to AI that represents knowledge using explicit symbols, rules, and logic. It manipulates these symbols through formal reasoning to solve problems and make decisions.",
+                "characteristics": [
+                        "Uses explicit rules (if-then logic)",
+                        "Knowledge represented as symbols",
+                        "Interpretable and transparent",
+                        "Requires domain expertise to encode rules"
+                ],
+                "examples": [
+                        "Expert systems (MYCIN for medical diagnosis)",
+                        "Chess engines (early versions)",
+                        "Logic programming (Prolog)"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🕸️🧠",
+                "title": "Connectionist AI",
+                "subtitle": "Neural Network Approaches",
+                "definition": "An AI approach inspired by biological neural networks, where learning emerges from the connections between simple processing units. Knowledge is distributed across network weights rather than explicit symbols.",
+                "characteristics": [
+                        "Learning from data/examples",
+                        "Distributed representations",
+                        "Handles noisy and incomplete data well",
+                        "Often requires large datasets"
+                ],
+                "examples": [
+                        "Neural networks and deep learning",
+                        "Pattern recognition systems",
+                        "Modern language models (GPT, BERT)"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🔀🤖",
+                "title": "Hybrid Approaches",
+                "subtitle": "Neuro-Symbolic AI",
+                "definition": "AI systems that combine symbolic reasoning with neural network learning, attempting to leverage the strengths of both paradigms: interpretability and logical reasoning from symbolic AI, and learning capability from connectionist approaches.",
+                "characteristics": [
+                        "Combines logic and learning",
+                        "Better interpretability than pure neural nets",
+                        "Can incorporate domain knowledge",
+                        "Active area of research"
+                ],
+                "examples": [
+                        "Neural Theorem Provers",
+                        "Knowledge graph embeddings",
+                        "Differentiable logic programming"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🧠📊",
+                "title": "Machine Learning",
+                "subtitle": "AI Subset",
+                "definition": "A subset of AI that enables systems to learn and improve from experience without being explicitly programmed, using algorithms to identify patterns in data.",
+                "characteristics": [
+                        "Data-driven learning",
+                        "Pattern recognition",
+                        "Predictive modeling",
+                        "Continuous improvement"
+                ],
+                "examples": [
+                        "Email spam filtering",
+                        "Credit scoring",
+                        "Product recommendations",
+                        "Weather forecasting"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "📊🎯",
+                "title": "Supervised Learning",
+                "subtitle": "Learning from Labeled Data",
+                "definition": "A machine learning paradigm where models learn from labeled training data (input-output pairs) to predict outputs for new, unseen inputs. The algorithm learns a mapping function from inputs to outputs.",
+                "characteristics": [
+                        "Requires labeled training data",
+                        "Clear target/ground truth",
+                        "Can measure accuracy directly",
+                        "Used for classification and regression"
+                ],
+                "examples": [
+                        "Image classification (cat vs dog)",
+                        "Spam email detection",
+                        "House price prediction",
+                        "Medical diagnosis from symptoms"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🔍🎨",
+                "title": "Unsupervised Learning",
+                "subtitle": "Finding Hidden Patterns",
+                "definition": "A machine learning paradigm where models learn patterns, structures, or representations from unlabeled data without explicit target outputs. The algorithm discovers hidden structures in the input data.",
+                "characteristics": [
+                        "No labeled data required",
+                        "Discovers hidden patterns",
+                        "Exploratory in nature",
+                        "Harder to evaluate objectively"
+                ],
+                "examples": [
+                        "Customer segmentation (clustering)",
+                        "Dimensionality reduction (PCA, t-SNE)",
+                        "Anomaly detection",
+                        "Topic modeling in documents"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🎮🏆",
+                "title": "Reinforcement Learning",
+                "subtitle": "Learning through Trial and Error",
+                "definition": "A machine learning paradigm where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward. The agent learns from the consequences of its actions through feedback.",
+                "characteristics": [
+                        "Learns from rewards/penalties",
+                        "Sequential decision making",
+                        "Explores environment through actions",
+                        "Delayed feedback and credit assignment"
+                ],
+                "examples": [
+                        "Game playing (AlphaGo, Atari games)",
+                        "Robot navigation and control",
+                        "Recommendation systems",
+                        "Autonomous driving"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🧠📚",
+                "title": "Deep Learning",
+                "subtitle": "Multi-layer Neural Networks",
+                "definition": "A subset of machine learning using neural networks with multiple layers (deep architectures) to progressively extract higher-level features from raw input. Each layer learns increasingly abstract representations.",
+                "characteristics": [
+                        "Multiple hidden layers",
+                        "Automatic feature learning",
+                        "Requires large datasets",
+                        "Computationally intensive"
+                ],
+                "examples": [
+                        "Computer vision (CNNs)",
+                        "Natural language processing (Transformers)",
+                        "Speech recognition",
+                        "Generative models (GANs, Diffusion)"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "⚡🧠",
+                "title": "Neural Network",
+                "subtitle": "Architecture",
+                "definition": "A computing system inspired by biological neural networks, consisting of interconnected nodes (neurons) that process and transmit information.",
+                "characteristics": [
+                        "Layered architecture",
+                        "Weighted connections",
+                        "Non-linear activation",
+                        "Parallel processing"
+                ],
+                "examples": [
+                        "Feedforward networks",
+                        "Convolutional networks (CNNs)",
+                        "Recurrent networks (RNNs)",
+                        "Transformer architectures"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "⚡🔵",
+                "title": "Perceptron",
+                "subtitle": "The Building Block",
+                "definition": "The simplest type of artificial neural network, consisting of a single layer that takes inputs, applies weights and a bias, then passes the result through an activation function. It can only learn linearly separable patterns.",
+                "characteristics": [
+                        "Single layer architecture",
+                        "Linear decision boundary",
+                        "Foundation of modern neural networks",
+                        "Limited to linearly separable problems"
+                ],
+                "examples": [
+                        "Binary classification (AND, OR gates)",
+                        "Simple pattern recognition",
+                        "Historical milestone (Rosenblatt, 1958)",
+                        "Cannot solve XOR problem"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🖼️🔍",
+                "title": "CNN",
+                "subtitle": "Convolutional Neural Network",
+                "definition": "A specialized neural network architecture designed for processing grid-like data (images). Uses convolutional layers to automatically learn spatial hierarchies of features through local connectivity and weight sharing.",
+                "characteristics": [
+                        "Convolutional and pooling layers",
+                        "Spatial hierarchy feature learning",
+                        "Translation invariant",
+                        "Parameter efficient through weight sharing"
+                ],
+                "examples": [
+                        "Image classification (ResNet, VGG)",
+                        "Object detection (YOLO, R-CNN)",
+                        "Facial recognition",
+                        "Medical image analysis"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🔄⏰",
+                "title": "RNN",
+                "subtitle": "Recurrent Neural Network",
+                "definition": "A neural network architecture with loops that allow information to persist, making them suitable for sequential data. Each step uses both current input and hidden state from previous steps to make predictions.",
+                "characteristics": [
+                        "Processes sequences of variable length",
+                        "Has memory of previous inputs",
+                        "Shares parameters across time steps",
+                        "Suffers from vanishing gradient problem"
+                ],
+                "examples": [
+                        "Language modeling",
+                        "Time series prediction",
+                        "Speech recognition",
+                        "Video analysis"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🚪🧠",
+                "title": "LSTM / GRU",
+                "subtitle": "Advanced Recurrent Networks",
+                "definition": "Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) are RNN variants that use gating mechanisms to better capture long-range dependencies and mitigate the vanishing gradient problem.",
+                "characteristics": [
+                        "Gating mechanisms (forget, input, output)",
+                        "Better long-term memory",
+                        "Solves vanishing gradient issue",
+                        "GRU is simpler variant of LSTM"
+                ],
+                "examples": [
+                        "Machine translation",
+                        "Text generation",
+                        "Speech synthesis",
+                        "Sentiment analysis"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "⚡🎯",
+                "title": "Transformers",
+                "subtitle": "Attention-Based Architecture",
+                "definition": "A neural network architecture that relies entirely on self-attention mechanisms to process sequential data in parallel, rather than recurrence. Uses positional encoding to maintain sequence order information.",
+                "characteristics": [
+                        "Self-attention mechanism",
+                        "Parallel processing (not sequential)",
+                        "Positional encodings",
+                        "Foundation of modern LLMs"
+                ],
+                "examples": [
+                        "GPT (generative pre-training)",
+                        "BERT (bidirectional encoder)",
+                        "Vision Transformers (ViT)",
+                        "Translation models (T5)"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "👁️🔲",
+                "title": "Vision Transformers (ViT)",
+                "subtitle": "Transformers for Computer Vision",
+                "definition": "An architecture that applies the transformer model directly to sequences of image patches, treating images similarly to how transformers process text. ViTs have challenged the dominance of CNNs in computer vision tasks by demonstrating that attention mechanisms can be highly effective for visual understanding.",
+                "characteristics": [
+                        "Divides images into fixed-size patches (e.g., 16×16 pixels)",
+                        "Treats image patches as tokens (like words in NLP)",
+                        "Uses self-attention to capture relationships between patches",
+                        "Requires large datasets or pre-training for best performance",
+                        "Scales effectively with model and data size"
+                ],
+                "examples": [
+                        "ViT (original Vision Transformer)",
+                        "Swin Transformer (hierarchical vision transformer)",
+                        "DeiT (Data-efficient Image Transformers)",
+                        "DINO (self-supervised vision transformer)",
+                        "BEiT (BERT pre-training for images)"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🎯🔀",
+                "title": "Mixture of Experts (MoE)",
+                "subtitle": "Sparse Expert Networks",
+                "definition": "A neural network architecture where different sub-networks (experts) specialize in different aspects of the input space, with a gating mechanism that routes each input to the most relevant experts. This allows for massive scaling while keeping computational costs manageable by only activating a subset of the model for each input.",
+                "characteristics": [
+                        "Contains multiple expert sub-networks and a gating network",
+                        "Only activates a small subset of experts per input (sparse activation)",
+                        "Enables scaling to trillion-parameter models efficiently",
+                        "Each expert can specialize in different patterns or tasks",
+                        "Gating network learns to route inputs to appropriate experts"
+                ],
+                "examples": [
+                        "Switch Transformers (1.6 trillion parameters)",
+                        "GShard (600 billion parameter translation model)",
+                        "GPT-4 (reportedly uses MoE)",
+                        "Mixtral 8x7B (open-source MoE model)",
+                        "Expert Choice Routing (improved gating mechanism)"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🎨⚔️",
+                "title": "GANs",
+                "subtitle": "Generative Adversarial Networks",
+                "definition": "A framework consisting of two neural networks (generator and discriminator) that compete against each other. The generator creates fake data while the discriminator tries to distinguish real from fake, driving both to improve.",
+                "characteristics": [
+                        "Two networks in competition",
+                        "Generator creates synthetic data",
+                        "Discriminator evaluates authenticity",
+                        "Training can be unstable"
+                ],
+                "examples": [
+                        "Image generation (StyleGAN)",
+                        "Deepfakes",
+                        "Data augmentation",
+                        "Art creation"
+                ]
+        },
+        {
+                "theme": "architectures",
+                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
+                "themeName": "Neural Architectures",
+                "icon": "🔄🎨",
+                "title": "Variational Autoencoder (VAE)",
+                "subtitle": "Generative Model",
+                "definition": "A type of generative model that learns to encode data into a compressed latent representation and decode it back, enabling generation of new similar data.",
+                "characteristics": [
+                        "Encoder-decoder architecture",
+                        "Learns latent space representation",
+                        "Probabilistic approach",
+                        "Smooth interpolation between samples"
+                ],
+                "examples": [
+                        "Image generation and editing",
+                        "Anomaly detection",
+                        "Data compression",
+                        "Feature learning"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "💬🔤",
+                "title": "Natural Language Processing (NLP)",
+                "subtitle": "AI Domain",
+                "definition": "A field of AI focused on enabling computers to understand, interpret, and generate human language in a valuable way.",
+                "characteristics": [
+                        "Text understanding and generation",
+                        "Language translation",
+                        "Sentiment analysis",
+                        "Context-aware processing"
+                ],
+                "examples": [
+                        "Chatbots and virtual assistants",
+                        "Machine translation (Google Translate)",
+                        "Text summarization",
+                        "Speech recognition"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "🔤📦",
+                "title": "Tokenization & Embeddings",
+                "subtitle": "Converting Text to Numbers",
+                "definition": "Tokenization splits text into smaller units (tokens) like words or subwords. Embeddings convert these tokens into dense vector representations that capture semantic meaning, allowing mathematical operations on text.",
+                "characteristics": [
+                        "Tokens can be words, subwords, or characters",
+                        "Embeddings map to dense vector space",
+                        "Similar words have similar vectors",
+                        "Foundation for all neural NLP"
+                ],
+                "examples": [
+                        "Word2Vec (skip-gram, CBOW)",
+                        "GloVe embeddings",
+                        "BPE (Byte-Pair Encoding)",
+                        "BERT/GPT tokenizers"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "📚🔮",
+                "title": "Language Models",
+                "subtitle": "Predicting Text Probability",
+                "definition": "Statistical or neural models that learn the probability distribution of sequences of words. They predict the likelihood of the next word given previous context, capturing grammar, semantics, and world knowledge.",
+                "characteristics": [
+                        "Assigns probabilities to word sequences",
+                        "Can generate coherent text",
+                        "Context-aware predictions",
+                        "Foundation of modern NLP systems"
+                ],
+                "examples": [
+                        "N-gram models (statistical)",
+                        "Neural language models (RNN-based)",
+                        "GPT (autoregressive)",
+                        "BERT (masked language model)"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "🤖📚",
+                "title": "Large Language Model (LLM)",
+                "subtitle": "Advanced NLP",
+                "definition": "Neural networks trained on massive amounts of text data that can understand and generate human-like text, performing various language tasks without task-specific training.",
+                "characteristics": [
+                        "Billions of parameters",
+                        "Pre-trained on vast text corpora",
+                        "Few-shot and zero-shot learning",
+                        "Emergent capabilities at scale"
+                ],
+                "examples": [
+                        "GPT-4, Claude, Gemini",
+                        "Text generation and completion",
+                        "Question answering",
+                        "Code generation"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "🔄💬",
+                "title": "Sequence-to-Sequence",
+                "subtitle": "Encoder-Decoder Architecture",
+                "definition": "An architecture that maps variable-length input sequences to variable-length output sequences. Consists of an encoder that processes input into a fixed representation and a decoder that generates the output sequence.",
+                "characteristics": [
+                        "Two-part architecture (encoder-decoder)",
+                        "Handles variable-length inputs/outputs",
+                        "Uses attention mechanisms",
+                        "Core of many NLP tasks"
+                ],
+                "examples": [
+                        "Machine translation",
+                        "Text summarization",
+                        "Question answering",
+                        "Dialogue systems"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "🏷️👤",
+                "title": "Named Entity Recognition",
+                "subtitle": "Identifying Key Information",
+                "definition": "A task that identifies and classifies named entities (proper nouns) in text into predefined categories such as person names, organizations, locations, dates, and quantities.",
+                "characteristics": [
+                        "Sequence labeling task",
+                        "Multi-class classification per token",
+                        "Context-dependent",
+                        "Used for information extraction"
+                ],
+                "examples": [
+                        "Person names (Barack Obama)",
+                        "Organizations (Google, UN)",
+                        "Locations (London, Pacific Ocean)",
+                        "Dates and times"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "😊😢",
+                "title": "Sentiment Analysis",
+                "subtitle": "Understanding Emotional Tone",
+                "definition": "The task of computationally identifying and categorizing opinions expressed in text to determine the emotional tone (positive, negative, neutral) or more nuanced emotions.",
+                "characteristics": [
+                        "Classification task",
+                        "Can be binary or multi-class",
+                        "Context and sarcasm are challenging",
+                        "Aspect-based variants exist"
+                ],
+                "examples": [
+                        "Product review analysis",
+                        "Social media monitoring",
+                        "Customer feedback analysis",
+                        "Brand reputation tracking"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "🌐🔄",
+                "title": "Machine Translation",
+                "subtitle": "Automatic Language Conversion",
+                "definition": "The task of automatically converting text or speech from one language to another while preserving meaning, style, and context. Modern approaches use neural sequence-to-sequence models.",
+                "characteristics": [
+                        "Sequence-to-sequence task",
+                        "Requires parallel corpora for training",
+                        "Attention mechanisms crucial",
+                        "Evaluation uses BLEU scores"
+                ],
+                "examples": [
+                        "Google Translate",
+                        "Statistical MT (phrase-based)",
+                        "Neural MT (Transformer-based)",
+                        "Zero-shot translation"
+                ]
+        },
+        {
+                "theme": "language",
+                "themeColor": "linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)",
+                "themeName": "Language AI",
+                "icon": "❓💡",
+                "title": "Question Answering",
+                "subtitle": "Retrieving Information from Text",
+                "definition": "The task of automatically answering questions posed in natural language by extracting or generating answers from text passages or knowledge bases. Can be extractive or generative.",
+                "characteristics": [
+                        "Extractive: select span from text",
+                        "Generative: create new answer",
+                        "Requires reading comprehension",
+                        "Context understanding critical"
+                ],
+                "examples": [
+                        "SQuAD dataset tasks",
+                        "Open-domain QA",
+                        "Chatbots and assistants",
+                        "Search engine snippets"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "👁️🖼️",
+                "title": "Computer Vision",
+                "subtitle": "AI Domain",
+                "definition": "A field of AI that enables computers to derive meaningful information from visual inputs like images and videos, mimicking human vision capabilities.",
+                "characteristics": [
+                        "Image recognition and classification",
+                        "Object detection and tracking",
+                        "Scene understanding",
+                        "Visual feature extraction"
+                ],
+                "examples": [
+                        "Facial recognition systems",
+                        "Autonomous vehicle perception",
+                        "Medical image analysis",
+                        "Quality control in manufacturing"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "📦🎯",
+                "title": "Object Detection",
+                "subtitle": "Locating Objects in Images",
+                "definition": "A computer vision task that identifies and localizes multiple objects within an image by drawing bounding boxes around them and classifying each detected object into predefined categories.",
+                "characteristics": [
+                        "Combines classification and localization",
+                        "Outputs bounding boxes and class labels",
+                        "Real-time variants exist",
+                        "Handles multiple objects per image"
+                ],
+                "examples": [
+                        "YOLO (You Only Look Once)",
+                        "R-CNN family (Fast R-CNN, Faster R-CNN)",
+                        "Self-driving car perception",
+                        "Retail inventory tracking"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "✂️🖼️",
+                "title": "Image Segmentation",
+                "subtitle": "Pixel-Level Classification",
+                "definition": "A computer vision task that partitions an image into multiple segments by classifying each pixel. Semantic segmentation assigns class labels to pixels, while instance segmentation distinguishes individual object instances.",
+                "characteristics": [
+                        "Pixel-wise classification",
+                        "Semantic vs instance segmentation",
+                        "Dense prediction task",
+                        "More detailed than bounding boxes"
+                ],
+                "examples": [
+                        "U-Net (medical imaging)",
+                        "Mask R-CNN (instance segmentation)",
+                        "Autonomous driving (road scene)",
+                        "Background removal tools"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🎨🖌️",
+                "title": "Style Transfer",
+                "subtitle": "Artistic Image Transformation",
+                "definition": "A technique that applies the artistic style of one image (style image) to the content of another image (content image), creating a new image that combines both. Uses neural networks to separate and recombine content and style.",
+                "characteristics": [
+                        "Separates content and style",
+                        "Uses pre-trained CNNs",
+                        "Real-time variants exist",
+                        "Artistic and creative applications"
+                ],
+                "examples": [
+                        "Neural Style Transfer",
+                        "Photo filters and effects",
+                        "Artistic rendering",
+                        "Video stylization"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🎨✨",
+                "title": "Generative AI",
+                "subtitle": "AI Capability",
+                "definition": "AI systems that can create new content (text, images, audio, video, code) by learning patterns from training data and generating novel outputs.",
+                "characteristics": [
+                        "Creates original content",
+                        "Learns from large datasets",
+                        "Multiple modalities (text, image, audio)",
+                        "Controllable via prompts"
+                ],
+                "examples": [
+                        "ChatGPT for text generation",
+                        "DALL-E, Midjourney for images",
+                        "GitHub Copilot for code",
+                        "Suno AI for music"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🌊💫",
+                "title": "Diffusion Models",
+                "subtitle": "Advanced Generative Models",
+                "definition": "Generative models that learn to create images by gradually denoising random noise through a learned reverse diffusion process. They iteratively refine noise into coherent images guided by text or other conditions.",
+                "characteristics": [
+                        "Iterative denoising process",
+                        "High-quality image generation",
+                        "Text-to-image capabilities",
+                        "More stable training than GANs"
+                ],
+                "examples": [
+                        "Stable Diffusion",
+                        "DALL-E 2 and 3",
+                        "Midjourney",
+                        "Image editing and inpainting"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🎤🔍",
+                "title": "Speech Recognition",
+                "subtitle": "Converting Speech to Text",
+                "definition": "The task of automatically converting spoken language into written text. Modern systems use deep learning to map audio waveforms or spectral features directly to text transcriptions.",
+                "characteristics": [
+                        "Audio to text conversion",
+                        "Handles accents and noise",
+                        "Real-time processing possible",
+                        "Language model integration"
+                ],
+                "examples": [
+                        "Whisper (OpenAI)",
+                        "Voice assistants (Siri, Alexa)",
+                        "Transcription services",
+                        "Dictation software"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🎵📊",
+                "title": "Audio Processing",
+                "subtitle": "Analyzing Sound Data",
+                "definition": "The computational analysis and transformation of audio signals. Includes converting waveforms to spectrograms (visual representations) and extracting features like mel-frequency cepstral coefficients for downstream tasks.",
+                "characteristics": [
+                        "Spectrograms visualize frequency over time",
+                        "Mel-scale mimics human hearing",
+                        "Time-frequency representations",
+                        "Preprocessing for audio ML"
+                ],
+                "examples": [
+                        "Speech recognition preprocessing",
+                        "Music genre classification",
+                        "Audio event detection",
+                        "Voice activity detection"
+                ]
+        },
+        {
+                "theme": "vision",
+                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
+                "themeName": "Vision & Media AI",
+                "icon": "🎬⏱️",
+                "title": "Video Understanding",
+                "subtitle": "Temporal Visual Analysis",
+                "definition": "The task of extracting meaningful information from video sequences by analyzing both spatial (within frames) and temporal (across frames) patterns. Includes action recognition, video classification, and event detection.",
+                "characteristics": [
+                        "Combines spatial and temporal analysis",
+                        "3D convolutions or frame sequences",
+                        "Computationally expensive",
+                        "Requires temporal modeling"
+                ],
+                "examples": [
+                        "Action recognition (sports analysis)",
+                        "Video surveillance",
+                        "Video summarization",
+                        "Gesture recognition"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "📈🔍",
+                "title": "Linear Regression",
+                "subtitle": "Predicting Continuous Values",
+                "definition": "A statistical method that models the relationship between a dependent variable and one or more independent variables using a linear equation. Forms the foundation for many ML algorithms.",
+                "characteristics": [
+                        "Predicts continuous outcomes",
+                        "Simple, interpretable model",
+                        "Assumes linear relationship",
+                        "Least squares optimization"
+                ],
+                "examples": [
+                        "House price prediction",
+                        "Sales forecasting",
+                        "Trend analysis",
+                        "Feature importance analysis"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "📊🎲",
+                "title": "Logistic Regression",
+                "subtitle": "Classification via Probability",
+                "definition": "A statistical method for binary classification that uses the logistic (sigmoid) function to model the probability of an outcome. Despite its name, it is used for classification, not regression.",
+                "characteristics": [
+                        "Outputs probabilities (0 to 1)",
+                        "Linear decision boundary",
+                        "Binary or multi-class classification",
+                        "Interpretable coefficients"
+                ],
+                "examples": [
+                        "Medical diagnosis (disease present/absent)",
+                        "Email spam detection",
+                        "Customer churn prediction",
+                        "Credit default risk"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "🎯🔄",
+                "title": "Bayesian Methods",
+                "subtitle": "Probabilistic Reasoning",
+                "definition": "Statistical approaches based on Bayes theorem that update probability estimates as new evidence becomes available. Combines prior knowledge with observed data to make predictions.",
+                "characteristics": [
+                        "Incorporates prior knowledge",
+                        "Updates beliefs with evidence",
+                        "Probabilistic predictions",
+                        "Handles uncertainty explicitly"
+                ],
+                "examples": [
+                        "Spam filtering (Naive Bayes)",
+                        "Medical diagnosis",
+                        "A/B testing",
+                        "Probabilistic graphing models"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "🔍📉",
+                "title": "Principal Component Analysis",
+                "subtitle": "Dimensionality Reduction",
+                "definition": "A statistical technique that transforms high-dimensional data into a lower-dimensional space by finding principal components (directions of maximum variance). Used for dimensionality reduction and feature extraction.",
+                "characteristics": [
+                        "Reduces data dimensions",
+                        "Preserves maximum variance",
+                        "Creates uncorrelated features",
+                        "Useful for visualization"
+                ],
+                "examples": [
+                        "Data compression",
+                        "Noise reduction",
+                        "Feature extraction before ML",
+                        "Exploratory data analysis"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "🌳📋",
+                "title": "Decision Trees",
+                "subtitle": "Rule-Based Classification",
+                "definition": "A statistical/ML model that makes decisions by learning simple decision rules from data features. Creates a tree structure where each internal node represents a test on a feature, and each leaf represents a decision.",
+                "characteristics": [
+                        "Easy to interpret and visualize",
+                        "Handles non-linear relationships",
+                        "No data normalization needed",
+                        "Can overfit without pruning"
+                ],
+                "examples": [
+                        "Credit approval decisions",
+                        "Medical diagnosis systems",
+                        "Customer segmentation",
+                        "Feature importance ranking"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "📈🎯",
+                "title": "Maximum Likelihood Estimation",
+                "subtitle": "Parameter Optimization",
+                "definition": "A statistical method for estimating the parameters of a probability distribution by maximizing the likelihood function. It finds parameter values that make the observed data most probable.",
+                "characteristics": [
+                        "Foundational estimation method",
+                        "Used to train many ML models",
+                        "Provides parameter confidence intervals",
+                        "Asymptotically optimal"
+                ],
+                "examples": [
+                        "Training logistic regression",
+                        "Fitting probability distributions",
+                        "Estimating neural network weights",
+                        "Statistical inference"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "🌲🌲",
+                "title": "Random Forests",
+                "subtitle": "Ensemble Decision Trees",
+                "definition": "An ensemble learning method that builds multiple decision trees during training and outputs the mode (classification) or mean (regression) of their predictions. Each tree is trained on a random subset of data and features.",
+                "characteristics": [
+                        "Reduces overfitting vs single trees",
+                        "Handles high-dimensional data well",
+                        "Provides feature importance rankings",
+                        "Robust to outliers and noise"
+                ],
+                "examples": [
+                        "Credit scoring",
+                        "Medical diagnosis",
+                        "Stock market prediction",
+                        "Feature selection"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "⚖️✂️",
+                "title": "Support Vector Machines",
+                "subtitle": "Maximum Margin Classifier",
+                "definition": "A supervised learning algorithm that finds the optimal hyperplane that maximally separates classes in high-dimensional space. Uses kernel functions to handle non-linear decision boundaries.",
+                "characteristics": [
+                        "Effective in high-dimensional spaces",
+                        "Memory efficient (uses support vectors)",
+                        "Versatile through different kernels",
+                        "Works well with clear class separation"
+                ],
+                "examples": [
+                        "Image classification",
+                        "Text categorization",
+                        "Bioinformatics",
+                        "Handwriting recognition"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "👥🔍",
+                "title": "K-Nearest Neighbors",
+                "subtitle": "Instance-Based Learning",
+                "definition": "A non-parametric algorithm that classifies data points based on the majority class of their k nearest neighbors in feature space. Makes no assumptions about data distribution and is a lazy learner.",
+                "characteristics": [
+                        "Simple, intuitive algorithm",
+                        "No training phase (lazy learning)",
+                        "Sensitive to feature scaling",
+                        "Computationally expensive at prediction"
+                ],
+                "examples": [
+                        "Recommendation systems",
+                        "Pattern recognition",
+                        "Anomaly detection",
+                        "Missing value imputation"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🧹📊",
+                "title": "Data Preprocessing",
+                "subtitle": "Preparing Data for Training",
+                "definition": "The process of cleaning, transforming, and organizing raw data into a format suitable for machine learning models. Includes handling missing values, normalization, and removing outliers.",
+                "characteristics": [
+                        "Handles missing/corrupt data",
+                        "Normalization and scaling",
+                        "Outlier detection and removal",
+                        "Data type conversions"
+                ],
+                "examples": [
+                        "Filling missing values with mean/median",
+                        "Min-max scaling features to 0-1 range",
+                        "Removing duplicate records",
+                        "Converting categorical to numerical data"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🔧⚙️",
+                "title": "Feature Engineering",
+                "subtitle": "Creating Meaningful Features",
+                "definition": "The process of using domain knowledge to extract or create features from raw data that make machine learning algorithms work better. Transforms raw data into informative representations.",
+                "characteristics": [
+                        "Domain knowledge driven",
+                        "Creates new features from existing ones",
+                        "Can improve model performance significantly",
+                        "Includes feature selection and extraction"
+                ],
+                "examples": [
+                        "Creating age from birthdate",
+                        "Combining height and weight into BMI",
+                        "Extracting day-of-week from timestamps",
+                        "One-hot encoding categorical variables"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "📸🔄",
+                "title": "Data Augmentation",
+                "subtitle": "Artificially Expanding Datasets",
+                "definition": "Techniques to artificially increase the size and diversity of training data by creating modified versions of existing data. Particularly important when training data is limited.",
+                "characteristics": [
+                        "Increases dataset size artificially",
+                        "Improves model generalization",
+                        "Prevents overfitting",
+                        "Domain-specific techniques"
+                ],
+                "examples": [
+                        "Image rotation, flipping, cropping",
+                        "Text paraphrasing and synonym replacement",
+                        "Audio pitch shifting and time stretching",
+                        "Adding noise to numerical data"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "✂️📂",
+                "title": "Train/Validation/Test Split",
+                "subtitle": "Dividing Data for Evaluation",
+                "definition": "The practice of dividing a dataset into separate subsets for training the model, tuning hyperparameters (validation), and final evaluation (test). Essential for assessing true model performance.",
+                "characteristics": [
+                        "Typically 70/15/15 or 80/10/10 split",
+                        "Training set: learn patterns",
+                        "Validation set: tune hyperparameters",
+                        "Test set: final performance evaluation"
+                ],
+                "examples": [
+                        "Stratified split for imbalanced data",
+                        "Time-based split for time series",
+                        "K-fold cross-validation",
+                        "Holdout validation"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🧱🔗",
+                "title": "Layers & Neurons",
+                "subtitle": "Network Architecture Components",
+                "definition": "The fundamental building blocks of neural networks. Layers are collections of neurons that process input and pass output to the next layer. Different layer types serve different purposes.",
+                "characteristics": [
+                        "Dense layers: fully connected neurons",
+                        "Convolutional layers: for spatial data",
+                        "Pooling layers: downsampling",
+                        "Recurrent layers: for sequences"
+                ],
+                "examples": [
+                        "Dense layer in feedforward networks",
+                        "Conv2D layers in image classifiers",
+                        "MaxPooling in CNNs",
+                        "LSTM layers in sequence models"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "⚡🎚️",
+                "title": "Activation Functions",
+                "subtitle": "Introducing Non-linearity",
+                "definition": "Mathematical functions applied to neuron outputs that introduce non-linearity into neural networks. They determine whether a neuron should be activated based on weighted input.",
+                "characteristics": [
+                        "ReLU: most common, avoids vanishing gradients",
+                        "Sigmoid: outputs 0-1, used in binary classification",
+                        "Tanh: outputs -1 to 1, zero-centered",
+                        "Softmax: used for multi-class output layers"
+                ],
+                "examples": [
+                        "ReLU in hidden layers of CNNs",
+                        "Sigmoid in binary classification output",
+                        "Tanh in LSTM gates",
+                        "Softmax in multi-class classification"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "📉🎯",
+                "title": "Loss Functions",
+                "subtitle": "Measuring Model Error",
+                "definition": "Mathematical functions that measure how far model predictions are from actual values. The training process minimizes the loss function to improve model accuracy.",
+                "characteristics": [
+                        "Cross-entropy for classification",
+                        "Mean Squared Error (MSE) for regression",
+                        "Mean Absolute Error (MAE) for regression",
+                        "Guides the learning process"
+                ],
+                "examples": [
+                        "Binary cross-entropy for spam detection",
+                        "Categorical cross-entropy for image classification",
+                        "MSE for house price prediction",
+                        "Huber loss for robust regression"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "⬅️📈",
+                "title": "Backpropagation",
+                "subtitle": "Learning Algorithm",
+                "definition": "An algorithm for efficiently computing gradients of the loss function with respect to network weights by applying the chain rule backwards through the network.",
+                "characteristics": [
+                        "Computes gradients efficiently",
+                        "Uses chain rule from calculus",
+                        "Enables gradient descent optimization",
+                        "Foundation of modern deep learning"
+                ],
+                "examples": [
+                        "Training feedforward neural networks",
+                        "Training CNNs and RNNs",
+                        "End-to-end learning"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "⛰️⬇️",
+                "title": "Gradient Descent",
+                "subtitle": "Optimization Algorithm",
+                "definition": "An iterative optimization algorithm that finds the minimum of a function by taking steps proportional to the negative of the gradient. Used to minimize the loss function during model training.",
+                "characteristics": [
+                        "Iterative optimization process",
+                        "Follows direction of steepest descent",
+                        "Variants: SGD, mini-batch, Adam",
+                        "Learning rate controls step size"
+                ],
+                "examples": [
+                        "Training linear regression",
+                        "Optimizing neural network weights",
+                        "SGD in deep learning",
+                        "Adam optimizer in Transformers"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🎛️⚙️",
+                "title": "Optimizers",
+                "subtitle": "Updating Model Weights",
+                "definition": "Algorithms that adjust neural network weights to minimize the loss function. Different optimizers use various strategies to navigate the loss landscape efficiently.",
+                "characteristics": [
+                        "SGD: simple, momentum variants",
+                        "Adam: adaptive learning rates",
+                        "RMSprop: good for RNNs",
+                        "Learning rate is crucial parameter"
+                ],
+                "examples": [
+                        "Adam for transformer training",
+                        "SGD with momentum for CNNs",
+                        "RMSprop for recurrent networks",
+                        "AdaGrad for sparse data"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🎚️📈",
+                "title": "Learning Rate",
+                "subtitle": "Controlling Weight Updates",
+                "definition": "A hyperparameter that controls how much model weights change in response to the estimated error. Too high causes instability, too low causes slow learning.",
+                "characteristics": [
+                        "Controls speed of learning",
+                        "Typically 0.001 to 0.1",
+                        "Can be scheduled/adaptive",
+                        "Critical for convergence"
+                ],
+                "examples": [
+                        "Fixed learning rate (0.001)",
+                        "Learning rate decay over time",
+                        "Cyclical learning rates",
+                        "Warm-up then decay schedule"
+                ]
+        },
+        {
+                "theme": "training",
+                "themeColor": "linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)",
+                "themeName": "Data & Training",
+                "icon": "🔄📦",
+                "title": "Epochs & Batches",
+                "subtitle": "Organizing Training",
+                "definition": "An epoch is one complete pass through the entire training dataset. Data is processed in batches (mini-batches) rather than all at once for computational efficiency.",
+                "characteristics": [
+                        "Epoch: full dataset pass",
+                        "Batch: subset processed together",
+                        "Batch size affects memory and speed",
+                        "Multiple epochs for convergence"
+                ],
+                "examples": [
+                        "Training for 100 epochs",
+                        "Batch size of 32 images",
+                        "Mini-batch gradient descent",
+                        "Batch size 1 = stochastic gradient descent"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "📊🔄",
+                "title": "DATA in ML",
+                "subtitle": "Foundation of Learning",
+                "definition": "Raw information represented as points in geometric space. Each data point becomes a vector (e.g., patient = [age, BMI]) that serves as input to calculate error and guide learning.",
+                "characteristics": [
+                        "Vectors: Represent data as points in space",
+                        "Calculus: Provide inputs to error function",
+                        "Result: Numbers become geometry",
+                        "Enable distance measurements from decision boundaries"
+                ],
+                "examples": [
+                        "Patient [45, 32] as point in 2D space",
+                        "House [bedrooms=3, sqft=2000] as vector",
+                        "Image as 400-dimensional vector (20×20 pixels)",
+                        "Text embeddings as high-dimensional points"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "⚖️📐",
+                "title": "WEIGHTS in ML",
+                "subtitle": "Learnable Parameters",
+                "definition": "A vector that points toward the positive class and defines the orientation of the hyperplane that separates classes. These are the parameters that learning algorithms optimize to minimize error.",
+                "characteristics": [
+                        "Vectors: Point toward positive class",
+                        "Calculus: The parameters we optimize",
+                        "Result: Learnable decision boundary",
+                        "Learning rotates this vector to minimize error"
+                ],
+                "examples": [
+                        "w = [2.5, 1.5] defines line separating obese/not-obese",
+                        "400 weights for Mark I Perceptron (20×20 pixels)",
+                        "Billions of weights in modern neural networks",
+                        "Changing w rotates the decision boundary"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "🎯📍",
+                "title": "PREDICTION in ML",
+                "subtitle": "Making Classifications",
+                "definition": "Computing the dot product w^T x to measure signed distance from the decision boundary. The sign determines which side of the hyperplane a point lies on, producing the classification.",
+                "characteristics": [
+                        "Vectors: Dot product measures distance",
+                        "Calculus: Not directly involved (pure geometry)",
+                        "Result: Classification decision",
+                        "Positive = one class, negative = other class"
+                ],
+                "examples": [
+                        "w^T x = +3.5 â†’ predict 'obese' (positive side)",
+                        "w^T x = -2.1 â†’ predict 'not obese' (negative side)",
+                        "w^T x = 0 â†’ on the boundary (uncertain)",
+                        "Magnitude shows confidence in prediction"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "❌📊",
+                "title": "ERROR in ML",
+                "subtitle": "Quantifying Mistakes",
+                "definition": "The difference between predicted and actual outputs. As a vector, it shows which predictions are wrong. As a function of weights, it creates an optimization landscape that calculus can navigate.",
+                "characteristics": [
+                        "Vectors: Difference between predicted and actual",
+                        "Calculus: Function to minimize (creates landscape)",
+                        "Result: Quantifies mistakes",
+                        "Mean Squared Error is common metric"
+                ],
+                "examples": [
+                        "MSE = 2.0 means we're making mistakes",
+                        "Error vector = [2, 0, 0, 2] for 4 data points",
+                        "Goal: Reduce MSE to â‰ˆ 0 through learning",
+                        "Creates 3D 'bowl' surface to descend"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "🧭⬇️",
+                "title": "LEARNING in ML",
+                "subtitle": "Finding the Direction",
+                "definition": "Using calculus to compute the gradient (direction of steepest error increase), then moving weights in the opposite direction. This automatic process drives improvement without human intervention.",
+                "characteristics": [
+                        "Vectors: Defines direction to move weights",
+                        "Calculus: Gradient shows steepest ascent",
+                        "Result: Automatic improvement",
+                        "Move opposite to gradient = descend toward minimum"
+                ],
+                "examples": [
+                        "Gradient = [-3.2, -4.8] points uphill",
+                        "Move opposite: toward [+3.2, +4.8]",
+                        "No human decides directionâ€”calculus does",
+                        "Repeated updates converge to solution"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "🔄➖",
+                "title": "UPDATE in ML",
+                "subtitle": "Adjusting Parameters",
+                "definition": "The fundamental operation: New weights = Old weights - Step × Gradient. Vector subtraction guided by calculus-derived direction. This single formula drives learning across all neural networks.",
+                "characteristics": [
+                        "Vectors: Subtract one vector from another",
+                        "Calculus: Use derivative for step size/direction",
+                        "Result: New = Old - Step×Gradient",
+                        "Universal formula from perceptron to GPT"
+                ],
+                "examples": [
+                        "[1.0, 0.5] - 0.01×[-3.2, -4.8] = [1.032, 0.548]",
+                        "Perceptron: w_new = w_old + yx",
+                        "Gradient descent: x_new = x_old - Î·×gradient",
+                        "LMS/Widrow-Hoff: w_new = w_old + 2Î¼Îµx"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "🔁🎯",
+                "title": "The Complete Learning Loop",
+                "subtitle": "How ML Works End-to-End",
+                "definition": "The six-stage cycle that enables machine learning: DATA provides geometry â†’ WEIGHTS define boundary â†’ PREDICTION classifies â†’ ERROR quantifies mistakes â†’ LEARNING finds direction â†’ UPDATE adjusts weights â†’ repeat until error â‰ˆ 0.",
+                "characteristics": [
+                        "DATA: Numbers become geometric points",
+                        "WEIGHTS: Learnable decision boundary",
+                        "PREDICTION: Dot product classification",
+                        "ERROR: Optimization landscape",
+                        "LEARNING: Gradient-based direction",
+                        "UPDATE: Vector arithmetic adjustment"
+                ],
+                "examples": [
+                        "Perceptron learns in ~100 iterations",
+                        "Deep networks may need millions of iterations",
+                        "Each loop reduces error incrementally",
+                        "Convergence theorem guarantees solution (if linearly separable)"
+                ]
+        },
+        {
+                "theme": "learning_loop",
+                "themeColor": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "themeName": "The Learning Loop",
+                "icon": "🔬🔗",
+                "title": "Why Vectors AND Calculus?",
+                "subtitle": "The Essential Interplay",
+                "definition": "Vectors alone can represent problems geometrically but can't solve them automatically. Calculus alone can optimize 1D functions but can't handle high-dimensional data. Together: geometric representation (vectors) + automatic optimization (calculus) = machine learning.",
+                "characteristics": [
+                        "Vectors provide: Representation, generalization, efficiency",
+                        "Calculus provides: Optimization, navigation, convergence",
+                        "Together enable: Automatic learning, scalability, guarantees",
+                        "Update rule w - Î·âˆ‡Error combines both"
+                ],
+                "examples": [
+                        "Works for 2 weights or 175 billion (GPT-3)",
+                        "Perceptron convergence theorem (1958) proved this",
+                        "Same principles: 1960s ADALINE to 2020s transformers",
+                        "Vector-calculus synergy is foundation of all modern ML"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "➡️🔮",
+                "title": "Forward Pass",
+                "subtitle": "Data Flow Through Network",
+                "definition": "The process where input data flows through the network from input layer to output layer, with each layer transforming the data using weights, biases, and activation functions to produce predictions.",
+                "characteristics": [
+                        "Input Input â†’ Hidden layers â†’ Output",
+                        "Applies learned weights and biases",
+                        "Uses activation functions",
+                        "Produces predictions"
+                ],
+                "examples": [
+                        "Image passing through CNN layers",
+                        "Text through transformer encoder",
+                        "Audio through RNN layers",
+                        "Tabular data through dense layers"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "🛡️🎯",
+                "title": "Regularization",
+                "subtitle": "Preventing Overfitting",
+                "definition": "Techniques that constrain or add penalties to model complexity to prevent overfitting. Helps models generalize better to unseen data by discouraging overly complex patterns.",
+                "characteristics": [
+                        "Dropout: randomly deactivates neurons",
+                        "L1 regularization: encourages sparsity",
+                        "L2 regularization: penalizes large weights",
+                        "Early stopping: stops before overfitting"
+                ],
+                "examples": [
+                        "Dropout layers with 0.5 probability",
+                        "L2 regularization in linear models",
+                        "L1 for feature selection",
+                        "Stopping training when validation loss increases"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "⚖️📊",
+                "title": "Batch Normalization",
+                "subtitle": "Stabilizing Training",
+                "definition": "A technique that normalizes layer inputs by adjusting and scaling activations. It stabilizes learning, allows higher learning rates, and reduces sensitivity to initialization.",
+                "characteristics": [
+                        "Normalizes activations between layers",
+                        "Reduces internal covariate shift",
+                        "Allows faster training",
+                        "Acts as regularization"
+                ],
+                "examples": [
+                        "After convolutional layers in CNNs",
+                        "Before activation functions",
+                        "In ResNet architectures",
+                        "Deep network training"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "📈❌",
+                "title": "Overfitting",
+                "subtitle": "Training Problem",
+                "definition": "When a model learns the training data too well, including noise and random fluctuations, resulting in poor performance on new, unseen data.",
+                "characteristics": [
+                        "High training accuracy, low test accuracy",
+                        "Model memorizes rather than generalizes",
+                        "Too complex for the data",
+                        "Poor real-world performance"
+                ],
+                "examples": [
+                        "Decision tree memorizing training set",
+                        "Neural network with too many parameters",
+                        "Polynomial regression with high degree",
+                        "Model performs well in lab, fails in production"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "📉❌",
+                "title": "Underfitting",
+                "subtitle": "Training Problem",
+                "definition": "When a model is too simple to capture the underlying patterns in the data, resulting in poor performance on both training and test data.",
+                "characteristics": [
+                        "Low training and test accuracy",
+                        "Model too simple for the problem",
+                        "Fails to capture data patterns",
+                        "High bias"
+                ],
+                "examples": [
+                        "Linear model for non-linear data",
+                        "Shallow neural network for complex task",
+                        "Insufficient training time",
+                        "Too few features"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "⚖️🎯",
+                "title": "Bias-Variance Tradeoff",
+                "subtitle": "Model Balance",
+                "definition": "The fundamental tradeoff in machine learning between a model's bias (error from wrong assumptions) and variance (error from sensitivity to training data fluctuations).",
+                "characteristics": [
+                        "High bias = underfitting",
+                        "High variance = overfitting",
+                        "Need to balance both",
+                        "Central to model selection"
+                ],
+                "examples": [
+                        "Simple model (high bias, low variance)",
+                        "Complex model (low bias, high variance)",
+                        "Optimal model balances both",
+                        "Regularization manages tradeoff"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "🚀💭",
+                "title": "Model Inference",
+                "subtitle": "Making Predictions",
+                "definition": "The process of using a trained model to make predictions on new, unseen data. The forward pass is executed without updating weights, typically optimized for speed.",
+                "characteristics": [
+                        "No weight updates",
+                        "Faster than training",
+                        "Can be optimized/quantized",
+                        "Real-time or batch processing"
+                ],
+                "examples": [
+                        "Classifying new images",
+                        "Generating text responses",
+                        "Real-time object detection",
+                        "Batch prediction on dataset"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "📦⚡",
+                "title": "Model Compression",
+                "subtitle": "Optimizing for Deployment",
+                "definition": "Techniques to reduce model size and computational requirements while maintaining performance. Essential for deploying models on resource-constrained devices.",
+                "characteristics": [
+                        "Quantization: reduce precision",
+                        "Pruning: remove unnecessary weights",
+                        "Knowledge distillation: smaller student model",
+                        "Mobile-optimized architectures"
+                ],
+                "examples": [
+                        "8-bit quantization for mobile",
+                        "Pruning 50% of weights",
+                        "TensorFlow Lite models",
+                        "ONNX runtime optimization"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "🔬⚖️",
+                "title": "A/B Testing for Models",
+                "subtitle": "Comparing in Production",
+                "definition": "A controlled experiment where two model versions are deployed simultaneously to different user groups. Compares performance metrics to determine which model performs better in real-world conditions.",
+                "characteristics": [
+                        "Compares two model versions",
+                        "Uses real user data",
+                        "Statistical significance testing",
+                        "Measures business metrics"
+                ],
+                "examples": [
+                        "Testing new recommendation algorithm",
+                        "Comparing translation model versions",
+                        "Testing fraud detection improvements",
+                        "Evaluating search ranking changes"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "🔄✅",
+                "title": "Cross-Validation",
+                "subtitle": "Model Evaluation Technique",
+                "definition": "A resampling technique used to assess how well a model generalizes to unseen data by partitioning data into complementary subsets, training on some subsets and validating on others.",
+                "characteristics": [
+                        "Reduces overfitting assessment bias",
+                        "Better use of limited data",
+                        "K-fold is most common variant",
+                        "More computationally expensive"
+                ],
+                "examples": [
+                        "K-fold cross-validation",
+                        "Leave-one-out cross-validation",
+                        "Stratified cross-validation",
+                        "Time-series cross-validation"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "👁️🎯",
+                "title": "Attention Mechanism",
+                "subtitle": "Selective Focus",
+                "definition": "A technique that allows neural networks to dynamically focus on different parts of the input when producing each part of the output. It learns which inputs are most relevant for each prediction.",
+                "characteristics": [
+                        "Dynamic importance weighting",
+                        "Captures long-range dependencies",
+                        "Foundation of Transformers",
+                        "Improves interpretability"
+                ],
+                "examples": [
+                        "Transformer models (GPT, BERT)",
+                        "Machine translation",
+                        "Image captioning",
+                        "Self-attention in language models"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🎯🔧",
+                "title": "Fine-tuning",
+                "subtitle": "Transfer Learning",
+                "definition": "The process of taking a pre-trained model and further training it on a specific task or domain, adapting its learned knowledge to new specialized applications.",
+                "characteristics": [
+                        "Starts with pre-trained model",
+                        "Requires less data than training from scratch",
+                        "Task-specific adaptation",
+                        "Faster than full training"
+                ],
+                "examples": [
+                        "Fine-tuning BERT for sentiment analysis",
+                        "Adapting GPT for customer support",
+                        "Medical image classifier from ImageNet",
+                        "Domain-specific chatbots"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "💬✏️",
+                "title": "Prompt Engineering",
+                "subtitle": "LLM Technique",
+                "definition": "The practice of carefully designing and optimizing text prompts to elicit desired responses from large language models, maximizing their effectiveness.",
+                "characteristics": [
+                        "Crafts clear instructions",
+                        "Provides context and examples",
+                        "Iterative refinement",
+                        "Task-specific formatting"
+                ],
+                "examples": [
+                        "Zero-shot prompts (direct questions)",
+                        "Few-shot prompts (with examples)",
+                        "Chain-of-thought prompting",
+                        "System prompts and role assignment"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🔍📚",
+                "title": "Retrieval-Augmented Generation (RAG)",
+                "subtitle": "LLM Enhancement",
+                "definition": "A technique that enhances language models by retrieving relevant information from external knowledge sources before generating responses, improving accuracy and reducing hallucinations.",
+                "characteristics": [
+                        "Combines retrieval and generation",
+                        "Accesses external knowledge bases",
+                        "Reduces hallucinations",
+                        "Provides source citations"
+                ],
+                "examples": [
+                        "Question answering with document search",
+                        "Chatbots with company knowledge bases",
+                        "Research assistants",
+                        "Customer support with FAQs"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🎓⚡",
+                "title": "Few-Shot Learning",
+                "subtitle": "Learning Paradigm",
+                "definition": "A machine learning approach where models learn to perform new tasks with only a few training examples, leveraging prior knowledge from related tasks.",
+                "characteristics": [
+                        "Requires minimal training data",
+                        "Leverages transfer learning",
+                        "Rapid task adaptation",
+                        "Meta-learning approaches"
+                ],
+                "examples": [
+                        "GPT models with example prompts",
+                        "Image classification with few examples",
+                        "One-shot object recognition",
+                        "Quick adaptation to new languages"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "📊❌",
+                "title": "Confusion Matrix",
+                "subtitle": "Classification Performance Table",
+                "definition": "A table used to evaluate classification model performance by showing the counts of true positives, true negatives, false positives, and false negatives.",
+                "characteristics": [
+                        "Shows all prediction outcomes",
+                        "Basis for many metrics",
+                        "Especially useful for imbalanced data",
+                        "Visualizes error types"
+                ],
+                "examples": [
+                        "Binary classification evaluation",
+                        "Multi-class classification",
+                        "Medical test performance",
+                        "Spam detection assessment"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🎯⚖️",
+                "title": "Precision & Recall",
+                "subtitle": "Classification Metrics",
+                "definition": "Precision measures the proportion of positive predictions that are actually correct. Recall measures the proportion of actual positives that were correctly identified.",
+                "characteristics": [
+                        "Precision: quality of positive predictions",
+                        "Recall: coverage of actual positives",
+                        "Trade-off between the two",
+                        "F1-score combines both harmonically"
+                ],
+                "examples": [
+                        "Information retrieval systems",
+                        "Medical diagnosis (recall critical)",
+                        "Fraud detection (precision critical)",
+                        "Search engine evaluation"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "⚖️💯",
+                "title": "F1-Score",
+                "subtitle": "Balanced Performance Metric",
+                "definition": "The harmonic mean of precision and recall that provides a single score balancing both metrics. Particularly useful when you need to balance false positives and false negatives, or when dealing with imbalanced classes.",
+                "characteristics": [
+                        "Range: 0 to 1 (higher is better)",
+                        "Harmonic mean balances P and R",
+                        "Useful for imbalanced datasets",
+                        "F1 = 2×(P×R)/(P+R)"
+                ],
+                "examples": [
+                        "Medical diagnosis evaluation",
+                        "Spam detection performance",
+                        "Information retrieval systems",
+                        "Multi-class classification benchmarks"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🔄📚",
+                "title": "Transfer Learning",
+                "subtitle": "Leveraging Pre-trained Knowledge",
+                "definition": "The practice of taking a model trained on one task and reusing it as the starting point for a model on a second, related task. Transfer learning leverages knowledge gained from abundant data in one domain to improve performance on tasks where data may be limited.",
+                "characteristics": [
+                        "Uses pre-trained models as feature extractors or starting points",
+                        "Significantly reduces training time and data requirements",
+                        "Works best when source and target tasks are related",
+                        "Can freeze early layers and fine-tune later layers",
+                        "Core principle behind modern AI development"
+                ],
+                "examples": [
+                        "Using ImageNet pre-trained CNNs for medical imaging",
+                        "Fine-tuning BERT for sentiment analysis",
+                        "Adapting GPT for domain-specific text generation",
+                        "Transfer from synthetic to real-world data",
+                        "Cross-lingual transfer in NLP"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "⚖️🔍",
+                "title": "Contrastive Learning",
+                "subtitle": "Learning by Comparison",
+                "definition": "A self-supervised learning approach that teaches models to distinguish between similar and dissimilar examples by pulling together representations of similar items and pushing apart representations of different items in the embedding space. This technique enables learning powerful representations without labeled data.",
+                "characteristics": [
+                        "Learns by comparing positive pairs (similar) vs negative pairs (dissimilar)",
+                        "Creates semantically meaningful embeddings",
+                        "Enables self-supervised pre-training without labels",
+                        "Powers many modern vision and language models",
+                        "Particularly effective for representation learning"
+                ],
+                "examples": [
+                        "CLIP (Contrastive Language-Image Pre-training)",
+                        "SimCLR (self-supervised visual representations)",
+                        "MoCo (Momentum Contrast)",
+                        "Sentence-BERT (sentence embeddings)",
+                        "Triplet loss in face recognition"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🤖⚙️",
+                "title": "Agentic AI",
+                "subtitle": "Autonomous AI Systems",
+                "definition": "AI systems capable of autonomous goal-directed behavior, including planning, reasoning, tool use, and taking actions in environments. Agentic AI can break down complex tasks, use external tools and APIs, maintain memory of past interactions, and iteratively work toward objectives with minimal human intervention.",
+                "characteristics": [
+                        "Can plan multi-step solutions to achieve goals",
+                        "Uses tools and APIs to extend capabilities (function calling)",
+                        "Maintains context and memory across interactions",
+                        "Reasons about actions and their consequences",
+                        "Can self-critique and refine approaches iteratively"
+                ],
+                "examples": [
+                        "AutoGPT (autonomous task completion)",
+                        "LangChain agents (orchestrating LLM capabilities)",
+                        "ReAct (reasoning + acting framework)",
+                        "Function calling in GPT-4/Claude",
+                        "BabyAGI (autonomous task management)"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🌐🎨",
+                "title": "Multimodal AI",
+                "subtitle": "Cross-Modal Understanding",
+                "definition": "AI systems that can process, understand, and generate content across multiple modalities such as text, images, audio, and video. Multimodal models learn joint representations that capture relationships between different types of data, enabling tasks like image captioning, visual question answering, and text-to-image generation.",
+                "characteristics": [
+                        "Processes multiple types of input (text, image, audio, video)",
+                        "Learns shared representations across modalities",
+                        "Can translate between different modalities",
+                        "Enables richer, more natural human-AI interaction",
+                        "Powers next-generation AI applications"
+                ],
+                "examples": [
+                        "GPT-4 Vision (text + image understanding)",
+                        "CLIP (vision-language model)",
+                        "Gemini (native multimodal model)",
+                        "Flamingo (few-shot vision-language learning)",
+                        "Whisper + GPT (audio transcription + language)"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "👍🎯",
+                "title": "RLHF",
+                "subtitle": "Reinforcement Learning from Human Feedback",
+                "definition": "A training technique that uses human preferences to guide AI behavior by having humans rank or rate model outputs, then training the model to maximize alignment with these preferences. RLHF is crucial for creating helpful, harmless, and honest AI assistants.",
+                "characteristics": [
+                        "Trains reward models from human preference comparisons",
+                        "Uses reinforcement learning (PPO) to optimize for human preferences",
+                        "Aligns model behavior with human values and intentions",
+                        "Three-stage process: supervised fine-tuning, reward modeling, RL optimization",
+                        "Reduces harmful, biased, or unhelpful outputs"
+                ],
+                "examples": [
+                        "InstructGPT and ChatGPT training",
+                        "Claude's Constitutional AI with human feedback",
+                        "Llama 2 Chat models",
+                        "Anthropic's HH-RLHF dataset",
+                        "Preference learning in robotics"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🎯🛡️",
+                "title": "AI Alignment",
+                "subtitle": "Value Alignment & Safety",
+                "definition": "The research field focused on ensuring AI systems behave in accordance with human values, intentions, and safety requirements. Alignment addresses the challenge of creating powerful AI that remains beneficial and controllable as capabilities increase, preventing unintended harmful behaviors.",
+                "characteristics": [
+                        "Ensures AI systems pursue intended goals safely",
+                        "Addresses challenges of specification, robustness, and scalability",
+                        "Combines technical and philosophical approaches",
+                        "Includes interpretability, robustness, and value learning",
+                        "Critical for deploying increasingly powerful AI systems"
+                ],
+                "examples": [
+                        "RLHF (aligning with human preferences)",
+                        "Constitutional AI (built-in principles)",
+                        "Red teaming (adversarial testing)",
+                        "Interpretability research (understanding model behavior)",
+                        "Scalable oversight techniques"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🌀❌",
+                "title": "Hallucinations & Mitigation",
+                "subtitle": "Managing AI Factual Errors",
+                "definition": "Hallucinations occur when AI models generate information that is plausible-sounding but factually incorrect or nonsensical. This is a critical challenge in deploying LLMs, and various mitigation techniques help reduce hallucinations and increase reliability in production systems.",
+                "characteristics": [
+                        "Models confidently state false information as fact",
+                        "Can occur from training data gaps or model limitations",
+                        "More frequent when model lacks knowledge or is uncertain",
+                        "Major barrier to trust in AI-generated content",
+                        "Requires multiple strategies to mitigate effectively"
+                ],
+                "examples": [
+                        "RAG (Retrieval-Augmented Generation) for grounding in facts",
+                        "Citation requirements for AI responses",
+                        "Confidence scoring and uncertainty quantification",
+                        "Fact-checking layers in production systems",
+                        "Chain-of-verification prompting techniques"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🔍💡",
+                "title": "Explainable AI (XAI)",
+                "subtitle": "AI Transparency & Interpretability",
+                "definition": "Methods and techniques that make AI model decisions understandable to humans. XAI addresses the \"black box\" problem by providing insights into how models arrive at predictions, crucial for trust, accountability, and regulatory compliance in high-stakes applications.",
+                "characteristics": [
+                        "Makes AI decisions interpretable and transparent",
+                        "Essential for regulatory compliance (FDA, EMA)",
+                        "Builds trust in AI systems",
+                        "Identifies model biases and errors",
+                        "Critical for high-stakes domains (healthcare, finance)"
+                ],
+                "examples": [
+                        "Medical diagnosis explanations",
+                        "Credit decision transparency",
+                        "Drug discovery model interpretability",
+                        "Autonomous vehicle decision logging",
+                        "Regulatory compliance documentation"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🧠🔓",
+                "title": "Model Interpretability",
+                "subtitle": "Understanding AI Decisions",
+                "definition": "The degree to which a human can understand and predict the behavior of an AI model. Interpretability encompasses both inherently interpretable models (decision trees, linear models) and post-hoc explanation methods for complex models.",
+                "characteristics": [
+                        "Ranges from fully transparent to post-hoc explanations",
+                        "Trade-off with model complexity and accuracy",
+                        "Supports debugging and model improvement",
+                        "Required for regulatory approval in many domains",
+                        "Enables accountability and auditability"
+                ],
+                "examples": [
+                        "Linear regression coefficients (inherently interpretable)",
+                        "Decision tree paths (inherently interpretable)",
+                        "Neural network attention mechanisms",
+                        "Rule extraction from black-box models",
+                        "Saliency maps for computer vision models"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🔑🎯",
+                "title": "Feature Importance & Attribution",
+                "subtitle": "Quantifying Input Contributions",
+                "definition": "Methods that assign importance scores to input features, quantifying each feature's contribution to predictions. Essential for understanding model decision-making and identifying key predictive factors across the entire dataset.",
+                "characteristics": [
+                        "Quantifies feature contributions (global method)",
+                        "Model-specific or model-agnostic approaches",
+                        "Helps feature selection and engineering",
+                        "Validates domain knowledge",
+                        "Identifies most influential variables"
+                ],
+                "examples": [
+                        "Permutation feature importance",
+                        "Random forest feature importance",
+                        "Gradient-based attribution",
+                        "SHAP global feature importance",
+                        "Correlation-based importance"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "📊🌍",
+                "title": "PDP (Partial Dependence Plots)",
+                "subtitle": "Average Feature Effects",
+                "definition": "Plots showing the marginal effect of one or two features on the predicted outcome, averaged over all instances in the dataset. PDPs visualize how the model's average prediction changes as a feature varies, revealing global patterns.",
+                "characteristics": [
+                        "Global method (population average)",
+                        "Shows marginal feature effects",
+                        "Model-agnostic approach",
+                        "Can show 1D or 2D feature interactions",
+                        "Assumes feature independence"
+                ],
+                "examples": [
+                        "Average effect of age on disease risk",
+                        "Molecular weight impact on drug absorption",
+                        "Feature effects in risk models",
+                        "Non-linear relationships visualization",
+                        "Identifying optimal feature ranges"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "📈👤",
+                "title": "ICE (Individual Conditional Expectation)",
+                "subtitle": "Individual Feature Effect Curves",
+                "definition": "Plots showing how a model's prediction for a specific instance changes as a single feature varies, holding all other features constant. ICE reveals heterogeneous feature effects that PDP averages mask, with PDP being the average of all ICE curves.",
+                "characteristics": [
+                        "One curve per instance (local method)",
+                        "Shows individual-level effects",
+                        "Reveals prediction heterogeneity",
+                        "Complements PDP (PDP = average of ICE curves)",
+                        "Model-agnostic approach"
+                ],
+                "examples": [
+                        "Patient-specific drug dose-response curves",
+                        "Individual credit score effects on loan probability",
+                        "Instance-level molecule potency relationships",
+                        "Identifying subgroups with different responses",
+                        "Feature interactions at instance level"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "👁️⚡",
+                "title": "Attention Mechanisms & Visualization",
+                "subtitle": "Understanding Model Focus",
+                "definition": "Techniques that reveal which input features a model \"attends to\" when making predictions. Particularly important for transformer models, attention weights show the relative importance of different input elements and relationships between tokens.",
+                "characteristics": [
+                        "Visual interpretation of model reasoning",
+                        "Shows token-to-token relationships",
+                        "Identifies relevant context windows",
+                        "Helps diagnose model failures",
+                        "Native to transformer architectures"
+                ],
+                "examples": [
+                        "BERT attention head visualization",
+                        "GPT prompt attention patterns",
+                        "Vision transformer patch attention",
+                        "Multi-head attention analysis",
+                        "Cross-attention in encoder-decoder models"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🔬🎯",
+                "title": "LIME",
+                "subtitle": "Local Interpretable Model-agnostic Explanations",
+                "definition": "An XAI technique that explains individual predictions by approximating the complex model locally with an interpretable model. LIME perturbs input data and observes prediction changes to understand which features most influence a specific decision.",
+                "characteristics": [
+                        "Model-agnostic (works with any black box model)",
+                        "Provides local explanations for individual predictions",
+                        "Uses perturbation-based approach",
+                        "Generates human-interpretable explanations",
+                        "Fast and intuitive method"
+                ],
+                "examples": [
+                        "Explaining individual loan approval decisions",
+                        "Medical diagnosis explanation for specific patients",
+                        "Image classification decision factors",
+                        "Text classification rationale",
+                        "Individual molecule property predictions"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🎲🔍",
+                "title": "SHAP",
+                "subtitle": "SHapley Additive exPlanations",
+                "definition": "An XAI framework based on game theory that assigns each feature an importance value for predictions. SHAP values represent the average marginal contribution of a feature across all possible feature combinations, providing consistent explanations at both local (individual) and global (population) levels.",
+                "characteristics": [
+                        "Based on Shapley values from game theory",
+                        "Provides consistent feature attributions",
+                        "Works at both local and global levels",
+                        "Shows both positive and negative contributions",
+                        "Mathematically rigorous and fair"
+                ],
+                "examples": [
+                        "Feature importance in drug discovery models",
+                        "Credit risk factor identification",
+                        "Healthcare outcome prediction analysis",
+                        "Fraud detection explanation",
+                        "Regulatory submission documentation"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "🔄💭",
+                "title": "Counterfactual Explanations",
+                "subtitle": "\"What If\" Scenarios",
+                "definition": "Explanations that describe the minimal changes required to input features that would flip the model's prediction. Counterfactuals answer \"what would need to change for a different outcome?\" providing actionable insights for decision-making.",
+                "characteristics": [
+                        "Provides actionable explanations",
+                        "Based on minimal change principle",
+                        "Supports decision-making and recourse",
+                        "Reveals model decision boundaries",
+                        "Useful for fairness assessment"
+                ],
+                "examples": [
+                        "Loan denial explanation (\"If income increased by £5K...\")",
+                        "Medical diagnosis (\"If biomarker X was lower...\")",
+                        "Drug discovery (\"If molecule had this functional group...\")",
+                        "Regulatory decision support",
+                        "Patient treatment planning"
+                ]
+        },
+        {
+                "theme": "xai",
+                "themeColor": "linear-gradient(135deg, #00B4DB 0%, #0083B0 100%)",
+                "themeName": "XAI & Interpretability",
+                "icon": "⚖️📋",
+                "title": "Regulatory XAI Requirements",
+                "subtitle": "Compliance & Transparency",
+                "definition": "Regulatory frameworks and requirements for explainable AI in high-stakes domains. These mandate transparency, interpretability, and human oversight for AI systems affecting health, safety, and rights, with specific standards varying by jurisdiction and application.",
+                "characteristics": [
+                        "FDA/EMA requirements for medical AI",
+                        "EU AI Act Article 13 transparency obligations",
+                        "GDPR \"right to explanation\" (Article 22)",
+                        "Industry-specific guidelines",
+                        "Audit trail and documentation requirements"
+                ],
+                "examples": [
+                        "FDA guidance on AI/ML medical devices",
+                        "EMA requirements for AI drug discovery",
+                        "NICE HTA evidence standards",
+                        "EU AI Act high-risk classification",
+                        "ISO 27001 AI governance frameworks"
+                ]
+        }
+];
 
         let state = {
             currentIndex: 0,
@@ -573,7 +2755,8 @@ const CARDS = [{"theme": "foundations","themeName": "AI & ML Foundations","theme
             {id: 'training', name: 'Data & Training', class: 'theme-training'},
             {id: 'learning_loop', name: 'The Learning Loop', class: 'theme-learning-loop'},
             {id: 'optimization', name: 'Optimization & Deployment', class: 'theme-optimization'},
-            {id: 'advanced', name: 'Advanced Techniques', class: 'theme-advanced'}
+            {id: 'advanced', name: 'Advanced Techniques', class: 'theme-advanced'},
+            {id: 'xai', name: 'XAI & Interpretability', class: 'theme-xai'}
         ];
 
         function renderCard(index) {
