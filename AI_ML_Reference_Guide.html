@@ -11,7 +11,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-02LVE7MRQK');
+        gtag('config', 'G-02LVE7MRQK', {
+            client_storage: 'none',
+            anonymize_ip: true
+        });
     </script>
     <!-- End Google Analytics -->
     
@@ -511,6 +514,52 @@
             .icon {
                 font-size: 60px;
             }
+        }
+        /* ===== PRIVACY NOTICE BAR ===== */
+        .privacy-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(31, 41, 55, 0.95);
+            color: #9ca3af;
+            font-size: 11px;
+            text-align: center;
+            padding: 6px 16px;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .privacy-bar a {
+            color: #5eead4;
+            text-decoration: none;
+        }
+
+        .privacy-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .privacy-bar-close {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+            padding: 2px 6px;
+        }
+
+        .privacy-bar-close:hover {
+            color: #ffffff;
+        }
+
+        /* Push content above fixed bar */
+        body {
+            padding-bottom: 32px;
         }
     </style>
 </head>
@@ -2954,5 +3003,10 @@ const CARDS = [
         // Initialize
         renderCard(0);
     </script>
+    <!-- Privacy Notice Bar -->
+    <div class="privacy-bar" id="privacyBar">
+        This site uses Google Analytics in cookieless mode. No personal data is stored or shared. Approximate location (country/region) and anonymised usage data are collected.
+        <button class="privacy-bar-close" onclick="document.getElementById('privacyBar').style.display='none'" aria-label="Dismiss">✕</button>
+    </div>
 </body>
 </html>
