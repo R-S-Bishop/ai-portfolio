@@ -1869,9 +1869,9 @@ const CARDS = [
                         "Positive = one class, negative = other class"
                 ],
                 "examples": [
-                        "w^T x = +3.5 â†’ predict 'obese' (positive side)",
-                        "w^T x = -2.1 â†’ predict 'not obese' (negative side)",
-                        "w^T x = 0 â†’ on the boundary (uncertain)",
+                        "w^T x = +3.5 → predict 'obese' (positive side)",
+                        "w^T x = -2.1 → predict 'not obese' (negative side)",
+                        "w^T x = 0 → on the boundary (uncertain)",
                         "Magnitude shows confidence in prediction"
                 ]
         },
@@ -1892,7 +1892,7 @@ const CARDS = [
                 "examples": [
                         "MSE = 2.0 means we're making mistakes",
                         "Error vector = [2, 0, 0, 2] for 4 data points",
-                        "Goal: Reduce MSE to â‰ˆ 0 through learning",
+                        "Goal: Reduce MSE to ≈ 0 through learning",
                         "Creates 3D 'bowl' surface to descend"
                 ]
         },
@@ -1913,7 +1913,7 @@ const CARDS = [
                 "examples": [
                         "Gradient = [-3.2, -4.8] points uphill",
                         "Move opposite: toward [+3.2, +4.8]",
-                        "No human decides directionâ€”calculus does",
+                        "No human decides direction—calculus does",
                         "Repeated updates converge to solution"
                 ]
         },
@@ -1934,8 +1934,8 @@ const CARDS = [
                 "examples": [
                         "[1.0, 0.5] - 0.01×[-3.2, -4.8] = [1.032, 0.548]",
                         "Perceptron: w_new = w_old + yx",
-                        "Gradient descent: x_new = x_old - Î·×gradient",
-                        "LMS/Widrow-Hoff: w_new = w_old + 2Î¼Îµx"
+                        "Gradient descent: x_new = x_old - η×gradient",
+                        "LMS/Widrow-Hoff: w_new = w_old + 2μεx"
                 ]
         },
         {
@@ -1945,7 +1945,7 @@ const CARDS = [
                 "icon": "🔁🎯",
                 "title": "The Complete Learning Loop",
                 "subtitle": "How ML Works End-to-End",
-                "definition": "The six-stage cycle that enables machine learning: DATA provides geometry â†’ WEIGHTS define boundary â†’ PREDICTION classifies â†’ ERROR quantifies mistakes â†’ LEARNING finds direction â†’ UPDATE adjusts weights â†’ repeat until error â‰ˆ 0.",
+                "definition": "The six-stage cycle that enables machine learning: DATA provides geometry → WEIGHTS define boundary → PREDICTION classifies → ERROR quantifies mistakes → LEARNING finds direction → UPDATE adjusts weights → repeat until error ≈ 0.",
                 "characteristics": [
                         "DATA: Numbers become geometric points",
                         "WEIGHTS: Learnable decision boundary",
@@ -1973,7 +1973,7 @@ const CARDS = [
                         "Vectors provide: Representation, generalization, efficiency",
                         "Calculus provides: Optimization, navigation, convergence",
                         "Together enable: Automatic learning, scalability, guarantees",
-                        "Update rule w - Î·âˆ‡Error combines both"
+                        "Update rule w - η∇Error combines both"
                 ],
                 "examples": [
                         "Works for 2 weights or 175 billion (GPT-3)",
@@ -1991,7 +1991,7 @@ const CARDS = [
                 "subtitle": "Data Flow Through Network",
                 "definition": "The process where input data flows through the network from input layer to output layer, with each layer transforming the data using weights, biases, and activation functions to produce predictions.",
                 "characteristics": [
-                        "Input Input â†’ Hidden layers â†’ Output",
+                        "Input Input → Hidden layers → Output",
                         "Applies learned weights and biases",
                         "Uses activation functions",
                         "Produces predictions"
@@ -2750,6 +2750,54 @@ const CARDS = [
                         "EU AI Act high-risk classification",
                         "ISO 27001 AI governance frameworks"
                 ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
+                "icon": "🔌🔗",
+                "title": "API",
+                "subtitle": "Gateway to AI Services",
+                "definition": "A set of protocols, endpoints, and conventions that allow software systems to communicate. In AI contexts, APIs are the primary mechanism through which models are accessed, integrated into products, and scaled — abstracting underlying complexity from the consuming application.",
+                "characteristics": [
+                        "Exposes model capabilities via structured HTTP requests (typically REST or GraphQL)",
+                        "Enforces authentication, rate limiting, and usage quotas",
+                        "Enables decoupled architecture — model updates without client-side changes",
+                        "Returns structured responses (JSON) enabling downstream processing",
+                        "Versioned endpoints preserve backwards compatibility during model upgrades",
+                        "Latency and token usage typically billed per call"
+                ],
+                "examples": [
+                        "Anthropic /v1/messages endpoint for Claude completions",
+                        "OpenAI API powering third-party applications (ChatGPT plugins, copilots)",
+                        "Google Vision API for image classification in enterprise apps",
+                        "HuggingFace Inference API for open-source model serving",
+                        "NICE potential future API access to HTA evidence synthesis tools"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🕸️📍",
+                "title": "Knowledge Graph",
+                "subtitle": "Structured Semantic Memory",
+                "definition": "A graph-structured knowledge base that represents entities (nodes) and their relationships (edges) in a machine-readable format. In AI systems, knowledge graphs provide grounded, factual context that augments model reasoning — particularly valuable where accuracy and traceability matter more than fluency.",
+                "characteristics": [
+                        "Entities and relations stored as triples: (subject → predicate → object)",
+                        "Enables multi-hop reasoning across connected facts",
+                        "Supports SPARQL or Cypher query languages for structured retrieval",
+                        "Contrasts with vector RAG: symbolic precision vs. semantic similarity",
+                        "Can be combined with LLMs (Graph RAG) for hybrid retrieval",
+                        "Particularly strong for domains with stable, structured factual relationships"
+                ],
+                "examples": [
+                        "Google Knowledge Graph powering search entity cards",
+                        "Wikidata as an open linked knowledge base",
+                        "Drug–target–indication graphs in pharmaceutical R&D (e.g. OpenTargets)",
+                        "Graph RAG in HTA evidence networks linking trials, endpoints, and populations",
+                        "NHS SNOMED-CT as a clinical ontology underpinning healthcare knowledge graphs"
+                ]
         }
 ];
 
@@ -2968,6 +3016,5 @@ const CARDS = [
         // Initialize
         renderCard(0);
     </script>
-
 </body>
 </html>
