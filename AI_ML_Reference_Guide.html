@@ -262,6 +262,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .theme-optimization { background: linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%); }
         .theme-advanced { background: linear-gradient(135deg, #C471F5 0%, #FA71CD 100%); }
         .theme-xai { background: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%); }
+        .theme-transformer { background: linear-gradient(135deg, #E8471A 0%, #F5A623 100%); }
+        .theme-hardware { background: linear-gradient(135deg, #232526 0%, #414345 100%); }
         
         .flashcard-container {
             perspective: 1500px;
@@ -883,73 +885,6 @@ const CARDS = [
                         "Text generation",
                         "Speech synthesis",
                         "Sentiment analysis"
-                ]
-        },
-        {
-                "theme": "architectures",
-                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
-                "themeName": "Neural Architectures",
-                "icon": "⚡🎯",
-                "title": "Transformers",
-                "subtitle": "Attention-Based Architecture",
-                "definition": "A neural network architecture that relies entirely on self-attention mechanisms to process sequential data in parallel, rather than recurrence. Uses positional encoding to maintain sequence order information.",
-                "characteristics": [
-                        "Self-attention mechanism",
-                        "Parallel processing (not sequential)",
-                        "Positional encodings",
-                        "Foundation of modern LLMs"
-                ],
-                "examples": [
-                        "GPT (generative pre-training)",
-                        "BERT (bidirectional encoder)",
-                        "Vision Transformers (ViT)",
-                        "Translation models (T5)"
-                ]
-        },
-        {
-                "theme": "architectures",
-                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
-                "themeName": "Neural Architectures",
-                "icon": "👁️🔲",
-                "title": "Vision Transformers (ViT)",
-                "subtitle": "Transformers for Computer Vision",
-                "definition": "An architecture that applies the transformer model directly to sequences of image patches, treating images similarly to how transformers process text. ViTs have challenged the dominance of CNNs in computer vision tasks by demonstrating that attention mechanisms can be highly effective for visual understanding.",
-                "characteristics": [
-                        "Divides images into fixed-size patches (e.g., 16×16 pixels)",
-                        "Treats image patches as tokens (like words in NLP)",
-                        "Uses self-attention to capture relationships between patches",
-                        "Requires large datasets or pre-training for best performance",
-                        "Scales effectively with model and data size"
-                ],
-                "examples": [
-                        "ViT (original Vision Transformer)",
-                        "Swin Transformer (hierarchical vision transformer)",
-                        "DeiT (Data-efficient Image Transformers)",
-                        "DINO (self-supervised vision transformer)",
-                        "BEiT (BERT pre-training for images)"
-                ]
-        },
-        {
-                "theme": "architectures",
-                "themeColor": "linear-gradient(135deg, #0575E6 0%, #021B79 100%)",
-                "themeName": "Neural Architectures",
-                "icon": "🎯🔀",
-                "title": "Mixture of Experts (MoE)",
-                "subtitle": "Sparse Expert Networks",
-                "definition": "A neural network architecture where different sub-networks (experts) specialize in different aspects of the input space, with a gating mechanism that routes each input to the most relevant experts. This allows for massive scaling while keeping computational costs manageable by only activating a subset of the model for each input.",
-                "characteristics": [
-                        "Contains multiple expert sub-networks and a gating network",
-                        "Only activates a small subset of experts per input (sparse activation)",
-                        "Enables scaling to trillion-parameter models efficiently",
-                        "Each expert can specialize in different patterns or tasks",
-                        "Gating network learns to route inputs to appropriate experts"
-                ],
-                "examples": [
-                        "Switch Transformers (1.6 trillion parameters)",
-                        "GShard (600 billion parameter translation model)",
-                        "GPT-4 (reportedly uses MoE)",
-                        "Mixtral 8x7B (open-source MoE model)",
-                        "Expert Choice Routing (improved gating mechanism)"
                 ]
         },
         {
@@ -2196,27 +2131,6 @@ const CARDS = [
                 "theme": "advanced",
                 "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
                 "themeName": "Advanced Techniques",
-                "icon": "👁️🎯",
-                "title": "Attention Mechanism",
-                "subtitle": "Selective Focus",
-                "definition": "A technique that allows neural networks to dynamically focus on different parts of the input when producing each part of the output. It learns which inputs are most relevant for each prediction.",
-                "characteristics": [
-                        "Dynamic importance weighting",
-                        "Captures long-range dependencies",
-                        "Foundation of Transformers",
-                        "Improves interpretability"
-                ],
-                "examples": [
-                        "Transformer models (GPT, BERT)",
-                        "Machine translation",
-                        "Image captioning",
-                        "Self-attention in language models"
-                ]
-        },
-        {
-                "theme": "advanced",
-                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
-                "themeName": "Advanced Techniques",
                 "icon": "🎯🔧",
                 "title": "Fine-tuning",
                 "subtitle": "Transfer Learning",
@@ -2798,6 +2712,485 @@ const CARDS = [
                         "Graph RAG in HTA evidence networks linking trials, endpoints, and populations",
                         "NHS SNOMED-CT as a clinical ontology underpinning healthcare knowledge graphs"
                 ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🌍🔗",
+                "title": "Semiconductor Supply Chain",
+                "subtitle": "The Foundation of AI Hardware",
+                "definition": "The global network of specialised companies that design, manufacture, and supply the chips that power AI. No single country or company controls the full chain — design, fabrication, and equipment are dominated by different players in different regions, creating significant geopolitical dependencies.",
+                "characteristics": [
+                        "Chip design (fabless): NVIDIA, AMD, Apple, Google design chips without manufacturing them",
+                        "Fabrication (fabs): TSMC (Taiwan) manufactures ~90% of the world's most advanced chips",
+                        "Lithography equipment: ASML (Netherlands) is the sole producer of EUV machines required for advanced nodes",
+                        "Advanced packaging and testing concentrated in Taiwan, South Korea, and Japan",
+                        "US export controls restricting advanced chip supply to China since 2022"
+                ],
+                "examples": [
+                        "TSMC manufacturing NVIDIA H100 GPUs at 4nm process node",
+                        "ASML EUV machines costing $150M+ each — no alternative supplier exists",
+                        "US-China chip war restricting export of H100/A100 GPUs to China",
+                        "Intel attempting to reshore fabrication via US CHIPS Act funding",
+                        "UK dependence on non-domestic fabrication for sovereign AI compute"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🖥️⚡",
+                "title": "GPU Architecture",
+                "subtitle": "Parallel Processing for AI",
+                "definition": "A Graphics Processing Unit (GPU) contains thousands of smaller cores optimised for performing the same mathematical operation simultaneously across large datasets. This parallel architecture makes GPUs ideal for the matrix multiplications that underpin neural network training and inference.",
+                "characteristics": [
+                        "Thousands of CUDA cores vs. tens of CPU cores — designed for parallelism not sequential speed",
+                        "High memory bandwidth: moves large amounts of data to/from VRAM rapidly",
+                        "VRAM (Video RAM) stores model weights and activations during computation",
+                        "Tensor Cores (NVIDIA Ampere/Hopper) accelerate mixed-precision matrix operations",
+                        "Power-hungry: H100 SXM5 draws up to 700W per card"
+                ],
+                "examples": [
+                        "NVIDIA H100 — 80GB HBM3 VRAM, 3,958 tensor cores, primary frontier model training GPU",
+                        "NVIDIA A100 — previous generation, still widely used in cloud AI infrastructure",
+                        "AMD MI300X — competitive alternative with 192GB HBM3 VRAM",
+                        "Training GPT-3 required ~10,000 V100 GPUs over several weeks",
+                        "Consumer GPUs (RTX 4090) used for fine-tuning and local inference"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🔲⚡",
+                "title": "TPU & Custom Silicon",
+                "subtitle": "Application-Specific AI Chips",
+                "definition": "Tensor Processing Units (TPUs) and other custom ASICs are chips designed from the ground up for a specific AI workload, trading general-purpose flexibility for dramatic gains in speed and energy efficiency for their target task.",
+                "characteristics": [
+                        "ASICs (Application-Specific Integrated Circuits) outperform GPUs on targeted workloads",
+                        "Google TPUs optimised for TensorFlow matrix operations — powers Search, Translate, DeepMind",
+                        "AWS Trainium (training) and Inferentia (inference) reduce cloud AI costs",
+                        "Apple Neural Engine in M-series chips enables on-device inference",
+                        "Trade-off: less flexible than GPUs, but faster and more energy-efficient for defined tasks"
+                ],
+                "examples": [
+                        "Google TPU v4 pods used to train PaLM and Gemini models",
+                        "AWS Inferentia2 claimed 40% better price-performance than GPU inference",
+                        "Apple M3 Neural Engine running on-device LLMs in iOS applications",
+                        "Cerebras CS-2 — wafer-scale chip with 900,000 cores for ultra-large models",
+                        "Groq LPU (Language Processing Unit) achieving record inference token speeds"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🏋️🚀",
+                "title": "Training vs Inference Hardware",
+                "subtitle": "Different Workloads, Different Requirements",
+                "definition": "Training and inference place fundamentally different demands on hardware. Training requires maximum compute and memory to update billions of parameters across massive datasets. Inference requires low latency and cost-efficiency to serve predictions at scale in production.",
+                "characteristics": [
+                        "Training: compute-intensive, requires large VRAM to hold model + gradients + optimiser states",
+                        "Inference: latency-sensitive, requires fast memory bandwidth to load weights quickly",
+                        "A 70B parameter model requires ~140GB VRAM for training, ~35GB for quantised inference",
+                        "Inference hardware optimised for throughput (requests/second) and cost per token",
+                        "Batching strategies critical for inference efficiency — grouping requests reduces overhead"
+                ],
+                "examples": [
+                        "H100 clusters for frontier model training (OpenAI, Anthropic, Google)",
+                        "NVIDIA L4 and L40S GPUs optimised for cost-efficient inference serving",
+                        "AWS Inferentia deployed for high-volume, low-cost inference at Amazon scale",
+                        "Quantisation (INT8/INT4) reducing inference memory requirements 2-4x",
+                        "Edge inference on Apple Neural Engine, Qualcomm NPUs for on-device AI"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "💧🔋",
+                "title": "HBM & Memory Bandwidth",
+                "subtitle": "The Hidden AI Bottleneck",
+                "definition": "High Bandwidth Memory (HBM) is a specialised RAM stacked directly on the GPU die, enabling extremely fast data transfer between memory and compute cores. Memory bandwidth — not raw compute — is often the true bottleneck in large model inference.",
+                "characteristics": [
+                        "HBM stacks multiple DRAM dies vertically, connected via through-silicon vias (TSVs)",
+                        "Bandwidth measured in TB/s — H100 delivers 3.35 TB/s vs ~50 GB/s for standard DDR5",
+                        "Loading model weights from memory to compute cores dominates inference latency",
+                        "Memory wall: compute speeds have outpaced memory bandwidth growth historically",
+                        "SK Hynix, Samsung, and Micron are the only HBM manufacturers — supply is constrained"
+                ],
+                "examples": [
+                        "NVIDIA H100 SXM: 80GB HBM3 at 3.35 TB/s bandwidth",
+                        "AMD MI300X: 192GB HBM3 — largest VRAM on a single GPU, enabling larger models",
+                        "HBM supply shortage constraining AI chip production in 2023-2024",
+                        "Flash Attention algorithm reducing memory bandwidth usage during transformer training",
+                        "Inference of Llama 3 70B bottlenecked by weight loading, not arithmetic"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🔌🕸️",
+                "title": "Chip Interconnects & NVLink",
+                "subtitle": "Connecting GPUs at Scale",
+                "definition": "Training frontier AI models requires hundreds or thousands of GPUs working in coordination. Chip interconnects are high-speed communication links that allow GPUs to share data and synchronise, with bandwidth between chips often becoming the bottleneck in large-scale training runs.",
+                "characteristics": [
+                        "NVLink (NVIDIA): high-bandwidth GPU-to-GPU interconnect, up to 900 GB/s bidirectional",
+                        "NVSwitch: fabric chip enabling all-to-all GPU communication within a server node",
+                        "InfiniBand networking connects GPU nodes across a data centre at low latency",
+                        "PCIe (standard): slower fallback interconnect when NVLink unavailable",
+                        "Communication overhead in distributed training managed by collective operations (AllReduce)"
+                ],
+                "examples": [
+                        "NVIDIA DGX H100: 8 GPUs connected via NVSwitch at 900 GB/s — treated as one logical unit",
+                        "Meta's AI Research SuperCluster: 16,000 A100s connected via InfiniBand",
+                        "AllReduce operation synchronising gradients across thousands of GPUs after each training step",
+                        "Google's TPU pods using custom inter-chip interconnects (ICI) for TPU-to-TPU communication",
+                        "Network bottlenecks causing GPU idle time during large distributed training runs"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "💻🔧",
+                "title": "CUDA & the Software Stack",
+                "subtitle": "NVIDIA's Programmable Moat",
+                "definition": "CUDA (Compute Unified Device Architecture) is NVIDIA's parallel computing platform and programming model, launched in 2006. It enables developers to write general-purpose code that runs on GPU cores, and its 15-year head start created an ecosystem so deep that switching costs now exceed hardware considerations.",
+                "characteristics": [
+                        "CUDA C/C++ extends standard C++ with GPU-specific syntax and memory management",
+                        "cuDNN library provides optimised primitives for deep learning (convolutions, attention)",
+                        "PyTorch and TensorFlow both compile to CUDA operations by default",
+                        "ROCm (AMD's alternative) is compatible but lacks CUDA's library depth and community",
+                        "CUDA ecosystem includes profiling tools, debuggers, and 15+ years of optimised libraries"
+                ],
+                "examples": [
+                        "PyTorch tensor.cuda() moving computation from CPU to NVIDIA GPU via CUDA",
+                        "cuBLAS accelerating matrix multiplications that underpin transformer training",
+                        "FlashAttention CUDA kernel reducing attention memory usage 10-20x",
+                        "AMD MI300X requiring ROCm instead of CUDA — limiting framework compatibility",
+                        "Researchers rewriting models in Triton (OpenAI's GPU language) to bypass CUDA lock-in"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🏭☁️",
+                "title": "Data Centres & Cloud Compute",
+                "subtitle": "AI Infrastructure at Scale",
+                "definition": "Large-scale AI training and inference runs on purpose-built data centres housing thousands of accelerators, requiring specialised power, cooling, and networking infrastructure. Cloud providers abstract this complexity into on-demand compute, democratising access while concentrating physical infrastructure ownership.",
+                "characteristics": [
+                        "Hyperscalers (AWS, Azure, Google Cloud) own the majority of AI compute capacity globally",
+                        "Power consumption: a single H100 cluster of 1,000 GPUs draws ~700 MW — equivalent to a small town",
+                        "Liquid cooling replacing air cooling as GPU thermal density increases",
+                        "Colocation and sovereign cloud models emerging as alternatives to US hyperscaler dependency",
+                        "PUE (Power Usage Effectiveness) metric measuring data centre energy efficiency"
+                ],
+                "examples": [
+                        "Microsoft Azure providing OpenAI with dedicated H100 clusters for GPT-4 training",
+                        "Google's TPU Research Cloud offering researchers free access to TPU pods",
+                        "UK Government's AIRDS programme building sovereign AI compute capacity",
+                        "AWS p4d.24xlarge instances: 8x A100 GPUs, 400 Gbps networking, $32/hour",
+                        "Meta building 2GW+ data centre campus in Louisiana for AI infrastructure"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🏰🔒",
+                "title": "NVIDIA's Moat",
+                "subtitle": "Why One Company Dominates AI Hardware",
+                "definition": "NVIDIA's dominance in AI hardware stems not from chip performance alone but from a compounding software and ecosystem advantage built over 15 years. The combination of CUDA lock-in, developer familiarity, optimised libraries, and first-mover timing in deep learning created switching costs that hardware specs alone cannot overcome.",
+                "characteristics": [
+                        "CUDA ecosystem: 15+ years of libraries, tooling, and developer expertise on NVIDIA hardware",
+                        "Network effects: more users → more CUDA optimisations → more users",
+                        "First-mover advantage: deep learning community built on CUDA before alternatives existed",
+                        "Vertical integration: chips, interconnects (NVLink), systems (DGX), and software (CUDA) all NVIDIA",
+                        "Market cap exceeded $3 trillion in 2024 — largest company by market cap at peak"
+                ],
+                "examples": [
+                        "PyTorch defaulting to CUDA — AMD/Intel GPUs require explicit workarounds",
+                        "FlashAttention, Triton, vLLM all written CUDA-first",
+                        "AMD Instinct MI300X matching H100 specs but lacking CUDA software parity",
+                        "Google and Amazon building custom silicon (TPU, Trainium) to reduce NVIDIA dependency",
+                        "NVIDIA H100 allocation becoming a strategic resource for AI labs in 2023-2024"
+                ]
+        },
+        {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🌍⚔️",
+                "title": "AI Hardware Geopolitics",
+                "subtitle": "Chips, Power, and National Strategy",
+                "definition": "Access to advanced AI hardware has become a dimension of geopolitical competition. Export controls, supply chain concentration, and sovereign compute initiatives reflect governments' recognition that AI capability is inseparable from the physical infrastructure that produces and runs it.",
+                "characteristics": [
+                        "US export controls (October 2022, updated 2023) restricting H100/A100 sales to China",
+                        "TSMC concentration in Taiwan creates single-point-of-failure risk for global AI supply",
+                        "ASML EUV monopoly means advanced chip fabrication depends on one Dutch company",
+                        "Sovereign compute programmes (UK, EU, UAE) building independent AI infrastructure",
+                        "CHIPS Acts (US, EU) investing $100B+ to reshore semiconductor fabrication"
+                ],
+                "examples": [
+                        "US restricting export of H100 GPUs to China, driving Huawei Ascend development",
+                        "UAE acquiring H100 clusters — raising concerns about re-export to restricted parties",
+                        "UK AIRDS programme and £1.5B compute investment announced in 2024 AI Opportunities Action Plan",
+                        "TSMC Arizona fab construction — US attempt to reduce Taiwan fabrication dependency",
+                        "Fable 5 (June 2026) government directive reflecting AI infrastructure as national security issue"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "⚡🎯",
+                "title": "Transformers",
+                "subtitle": "Attention-Based Architecture",
+                "definition": "A neural network architecture that relies entirely on self-attention mechanisms to process sequential data in parallel, rather than recurrence. Uses positional encoding to maintain sequence order information.",
+                "characteristics": [
+                        "Self-attention mechanism",
+                        "Parallel processing (not sequential)",
+                        "Positional encodings",
+                        "Foundation of modern LLMs"
+                ],
+                "examples": [
+                        "GPT (generative pre-training)",
+                        "BERT (bidirectional encoder)",
+                        "Vision Transformers (ViT)",
+                        "Translation models (T5)"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "👁️🔲",
+                "title": "Vision Transformers (ViT)",
+                "subtitle": "Transformers for Computer Vision",
+                "definition": "An architecture that applies the transformer model directly to sequences of image patches, treating images similarly to how transformers process text. ViTs have challenged the dominance of CNNs in computer vision tasks by demonstrating that attention mechanisms can be highly effective for visual understanding.",
+                "characteristics": [
+                        "Divides images into fixed-size patches (e.g., 16×16 pixels)",
+                        "Treats image patches as tokens (like words in NLP)",
+                        "Uses self-attention to capture relationships between patches",
+                        "Requires large datasets or pre-training for best performance",
+                        "Scales effectively with model and data size"
+                ],
+                "examples": [
+                        "ViT (original Vision Transformer)",
+                        "Swin Transformer (hierarchical vision transformer)",
+                        "DeiT (Data-efficient Image Transformers)",
+                        "DINO (self-supervised vision transformer)",
+                        "BEiT (BERT pre-training for images)"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "🎯🔀",
+                "title": "Mixture of Experts (MoE)",
+                "subtitle": "Sparse Expert Networks",
+                "definition": "A neural network architecture where different sub-networks (experts) specialize in different aspects of the input space, with a gating mechanism that routes each input to the most relevant experts. This allows for massive scaling while keeping computational costs manageable by only activating a subset of the model for each input.",
+                "characteristics": [
+                        "Contains multiple expert sub-networks and a gating network",
+                        "Only activates a small subset of experts per input (sparse activation)",
+                        "Enables scaling to trillion-parameter models efficiently",
+                        "Each expert can specialize in different patterns or tasks",
+                        "Gating network learns to route inputs to appropriate experts"
+                ],
+                "examples": [
+                        "Switch Transformers (1.6 trillion parameters)",
+                        "GShard (600 billion parameter translation model)",
+                        "GPT-4 (reportedly uses MoE)",
+                        "Mixtral 8x7B (open-source MoE model)",
+                        "Expert Choice Routing (improved gating mechanism)"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "👁️🎯",
+                "title": "Attention Mechanism",
+                "subtitle": "Selective Focus",
+                "definition": "A technique that allows neural networks to dynamically focus on different parts of the input when producing each part of the output. It learns which inputs are most relevant for each prediction.",
+                "characteristics": [
+                        "Dynamic importance weighting",
+                        "Captures long-range dependencies",
+                        "Foundation of Transformers",
+                        "Improves interpretability"
+                ],
+                "examples": [
+                        "Transformer models (GPT, BERT)",
+                        "Machine translation",
+                        "Image captioning",
+                        "Self-attention in language models"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "📥🔄",
+                "title": "Encoder",
+                "subtitle": "Understanding the Input",
+                "definition": "The encoder is the component of a transformer that processes the input sequence and converts it into a rich contextual representation. Each token is transformed into a vector that captures not just its own meaning but its relationship to every other token in the sequence — this representation is then passed to the decoder or used directly for tasks like classification.",
+                "characteristics": [
+                        "Processes the entire input sequence simultaneously (not token by token)",
+                        "Each layer refines the representation using self-attention and feed-forward sublayers",
+                        "Outputs a contextualised embedding for every input token",
+                        "Stacked layers: BERT uses 12 encoder layers, large variants use 24",
+                        "Used alone for understanding tasks: classification, NER, semantic search"
+                ],
+                "examples": [
+                        "BERT (Bidirectional Encoder Representations from Transformers) — encoder-only",
+                        "RoBERTa — optimised BERT variant used in search and classification",
+                        "Sentence-BERT producing sentence-level embeddings for semantic similarity",
+                        "Encoder outputs fed into cross-attention in encoder-decoder translation models",
+                        "Clinical NLP models using encoder-only architecture for medical record classification"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "📤✍️",
+                "title": "Decoder",
+                "subtitle": "Generating the Output",
+                "definition": "The decoder generates output sequences one token at a time, using both the encoder's contextual representation and the tokens it has already generated. It uses masked self-attention to prevent it from seeing ahead during training, ensuring each token is predicted only from prior context.",
+                "characteristics": [
+                        "Autoregressive: generates one token at a time, feeding each output back as input",
+                        "Masked self-attention prevents attending to future tokens during training",
+                        "Cross-attention layer connects decoder to encoder output (in encoder-decoder models)",
+                        "Decoder-only models (GPT family) use no encoder — input and output share the same stack",
+                        "Temperature and sampling strategies control output diversity at inference time"
+                ],
+                "examples": [
+                        "GPT-4, Claude, Llama — decoder-only architectures generating text autoregressively",
+                        "T5 and BART — encoder-decoder models using decoder for sequence generation",
+                        "Machine translation decoder generating target language from encoder representation",
+                        "Code generation (GitHub Copilot) using decoder to predict next code token",
+                        "Beam search decoding selecting highest-probability output sequences"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "👁️👁️",
+                "title": "Multi-Head Attention",
+                "subtitle": "Attending to Multiple Relationships Simultaneously",
+                "definition": "Multi-head attention runs several attention operations in parallel, each with different learned weight matrices. Each head can specialise in capturing a different type of relationship — syntax, coreference, positional proximity — and their outputs are concatenated and projected to form the final representation.",
+                "characteristics": [
+                        "Splits queries, keys, and values into h parallel heads (typically 8-96 depending on model size)",
+                        "Each head learns to attend to different aspects of the input independently",
+                        "Outputs from all heads concatenated and linearly projected back to model dimension",
+                        "Computational cost scales quadratically with sequence length — the core scaling challenge",
+                        "GPT-3 uses 96 attention heads across 96 layers"
+                ],
+                "examples": [
+                        "One head tracking subject-verb agreement, another tracking coreference resolution",
+                        "Vision transformer heads attending to different spatial regions of an image patch",
+                        "GPT-3: 96 heads x 96 layers = 9,216 parallel attention operations per forward pass",
+                        "Flash Attention algorithm rewriting multi-head attention for GPU memory efficiency",
+                        "Sparse attention variants (Longformer, BigBird) reducing quadratic cost for long sequences"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "📍🔢",
+                "title": "Positional Encoding",
+                "subtitle": "Giving the Model a Sense of Order",
+                "definition": "Because transformers process all tokens simultaneously rather than sequentially, they have no inherent sense of word order. Positional encodings inject information about each token's position into its embedding, allowing the model to distinguish between sequences that contain the same words in different orders.",
+                "characteristics": [
+                        "Original transformers used fixed sinusoidal encodings based on position index",
+                        "Learned positional embeddings (BERT, GPT) treat position as a trainable parameter",
+                        "Relative positional encodings capture distance between tokens rather than absolute position",
+                        "RoPE (Rotary Position Embedding) used in Llama, Mistral — enables length extrapolation",
+                        "Context window length is directly constrained by the positional encoding scheme"
+                ],
+                "examples": [
+                        "Sinusoidal encoding in original Attention Is All You Need paper (Vaswani et al., 2017)",
+                        "BERT learned position embeddings — fixed maximum sequence length of 512 tokens",
+                        "RoPE enabling Llama 3 to handle 128K token context windows",
+                        "ALiBi (Attention with Linear Biases) allowing models to generalise beyond training length",
+                        "Without positional encoding: dog bites man and man bites dog indistinguishable to model"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "⚡🧱",
+                "title": "Feed-Forward Sublayer",
+                "subtitle": "Processing Each Token Independently",
+                "definition": "After attention has gathered information across the sequence, each transformer layer passes every token through an identical feed-forward network independently. This two-layer MLP introduces non-linearity and is where much of the model's factual knowledge is thought to be stored — it is typically the largest component by parameter count in each layer.",
+                "characteristics": [
+                        "Applied identically and independently to each token position",
+                        "Two linear transformations with a non-linear activation (ReLU or GELU) between them",
+                        "Inner dimension typically 4x the model dimension (e.g. 4,096 to 16,384 to 4,096)",
+                        "Accounts for roughly two-thirds of total transformer parameters",
+                        "Research suggests factual associations (capitals, dates) stored in feed-forward weights"
+                ],
+                "examples": [
+                        "GPT-2 (117M params): feed-forward inner dimension of 3,072 per layer",
+                        "Geva et al. (2021) demonstrating feed-forward layers act as key-value memories",
+                        "GELU activation replacing ReLU in most modern transformers (BERT, GPT-2+)",
+                        "Mixture of Experts replacing dense feed-forward with sparse expert networks (Mixtral)",
+                        "Knowledge editing research targeting feed-forward weights to update factual associations"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "📏⚖️",
+                "title": "Layer Normalisation",
+                "subtitle": "Stabilising the Signal Through the Stack",
+                "definition": "Layer normalisation rescales the activations within each transformer layer to have zero mean and unit variance, preventing values from exploding or vanishing as they pass through dozens of stacked layers. Without it, training deep transformers reliably would be practically impossible.",
+                "characteristics": [
+                        "Normalises across the feature dimension (not the batch dimension like batch normalisation)",
+                        "Pre-norm (applied before attention/FFN) is now standard — improves training stability",
+                        "Post-norm (original BERT/GPT arrangement) requires careful learning rate warm-up",
+                        "Learnable scale and shift parameters allow model to undo normalisation if needed",
+                        "RMSNorm (Root Mean Square) — simplified variant used in Llama, T5 for efficiency"
+                ],
+                "examples": [
+                        "Pre-norm arrangement in GPT-2 onwards enabling stable training without warm-up",
+                        "RMSNorm in Llama 2/3 — removes mean-centering step, ~10% faster than LayerNorm",
+                        "Without layer norm: gradient explosion causing training divergence in deep stacks",
+                        "DeepNorm (Microsoft) scaling layer norm for 1,000+ layer transformers",
+                        "Layer norm parameters represent a tiny fraction of model size but critical for stability"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "💾⚡",
+                "title": "KV Cache",
+                "subtitle": "Avoiding Redundant Computation at Inference",
+                "definition": "During inference, a transformer decoder must attend to all previous tokens when generating each new token. The KV cache stores the key and value matrices computed for previous tokens so they do not need to be recomputed at each step — transforming inference from an O(n²) to an O(n) operation per new token.",
+                "characteristics": [
+                        "Caches Key and Value projections for all previously processed tokens",
+                        "Enables efficient autoregressive generation without reprocessing the full context",
+                        "Memory footprint grows linearly with sequence length and number of layers",
+                        "Long context windows (128K tokens) require significant GPU VRAM for KV cache alone",
+                        "Quantising the KV cache (INT8) a common technique for reducing memory pressure"
+                ],
+                "examples": [
+                        "Llama 3 70B: KV cache for 128K context requires ~16GB VRAM at full precision",
+                        "PagedAttention (vLLM) managing KV cache memory like OS virtual memory for efficiency",
+                        "Multi-Query Attention (MQA) sharing KV heads to reduce cache memory footprint",
+                        "Grouped Query Attention (GQA) in Llama 2/3 balancing MQA efficiency with quality",
+                        "Prefix caching reusing KV cache across requests with shared system prompts"
+                ]
         }
 ];
 
@@ -2810,15 +3203,17 @@ const CARDS = [
         const themes = [
             {id: 'all', name: 'All Cards', class: 'theme-foundations'},
             {id: 'foundations', name: 'AI & ML Foundations', class: 'theme-foundations'},
+            {id: 'classical', name: 'Classical Methods', class: 'theme-classical'},
+            {id: 'learning_loop', name: 'The Learning Loop', class: 'theme-learning-loop'},
+            {id: 'training', name: 'Data & Training', class: 'theme-training'},
             {id: 'architectures', name: 'Neural Architectures', class: 'theme-architectures'},
+            {id: 'transformer', name: 'Transformer Architecture', class: 'theme-transformer'},
+            {id: 'hardware', name: 'AI Hardware & Infrastructure', class: 'theme-hardware'},
             {id: 'language', name: 'Language AI', class: 'theme-language'},
             {id: 'vision', name: 'Vision & Media AI', class: 'theme-vision'},
-            {id: 'classical', name: 'Classical Methods', class: 'theme-classical'},
-            {id: 'training', name: 'Data & Training', class: 'theme-training'},
-            {id: 'learning_loop', name: 'The Learning Loop', class: 'theme-learning-loop'},
-            {id: 'optimization', name: 'Optimization & Deployment', class: 'theme-optimization'},
             {id: 'advanced', name: 'Advanced Techniques', class: 'theme-advanced'},
-            {id: 'xai', name: 'XAI & Interpretability', class: 'theme-xai'}
+            {id: 'xai', name: 'XAI & Interpretability', class: 'theme-xai'},
+            {id: 'optimization', name: 'Optimization & Deployment', class: 'theme-optimization'}
         ];
 
         function renderCard(index) {
