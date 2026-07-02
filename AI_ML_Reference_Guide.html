@@ -3219,6 +3219,29 @@ const CARDS = [
                 "theme": "transformer",
                 "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
                 "themeName": "Transformer Architecture",
+                "icon": "🌌📖",
+                "title": "Pre-training",
+                "subtitle": "Where the Model Is Born",
+                "definition": "Pre-training is the process of teaching a language model from scratch by having it predict the next token across trillions of words of text. It is the single most expensive step in creating AI — months of continuous compute across tens of thousands of GPUs, at costs exceeding $100 million per frontier run. Everything the model 'knows' is compressed into its weights during this phase.",
+                "characteristics": [
+                        "One deceptively simple objective: predict the next token — repeated trillions of times until knowledge emerges in the weights",
+                        "Training data measured in trillions of tokens — Llama 3 trained on 15 trillion, roughly 100 million novels' worth of text",
+                        "Frontier runs use 10,000–25,000+ GPUs running continuously for 3–6 months — a single hardware failure can checkpoint-restart the entire run",
+                        "Cost scales brutally: GPT-4-class training estimated at $100M+, with compute doubling roughly every 6 months at the frontier",
+                        "The loss curve is watched like a patient's vitals — sudden spikes can mean corrupted data, hardware faults, or numerical instability"
+                ],
+                "examples": [
+                        "GPT-4 reportedly trained on ~25,000 A100 GPUs over several months",
+                        "Llama 3: 15 trillion tokens, requiring Meta's 24,000-GPU clusters",
+                        "Chinchilla scaling laws (DeepMind, 2022) — optimal token-to-parameter ratios reshaping how labs train",
+                        "Data pipelines filtering Common Crawl from petabytes to curated training corpora",
+                        "Checkpointing every few hours — losing a week of training to a fault costs millions"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
                 "icon": "💾⚡",
                 "title": "KV Cache",
                 "subtitle": "Avoiding Redundant Computation at Inference",
