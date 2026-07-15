@@ -621,6 +621,29 @@ const CARDS = [
                 "theme": "foundations",
                 "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
                 "themeName": "AI & ML Foundations",
+                "icon": "🔓🔒",
+                "title": "Open-Weight vs Closed Models",
+                "subtitle": "The Defining Fault Line of Modern AI",
+                "definition": "The distinction between models whose weights are publicly released — downloadable, inspectable, fine-tunable, self-hostable — and models accessible only through a provider's API. This split shapes everything downstream: cost, privacy, sovereignty, safety oversight, and who gets to build. The 2023–26 period saw open-weight models close most of the capability gap, transforming AI from a rented service into ownable infrastructure.",
+                "characteristics": [
+                        "Open-weight: parameters downloadable (Llama, Mistral, DeepSeek, Qwen); closed: API-only (GPT-4, Claude, Gemini)",
+                        "Open-weight ≠ fully open-source — licences vary and training data is rarely released",
+                        "Open weights enable self-hosting: data never leaves your infrastructure",
+                        "Closed models offer managed safety, support, and typically frontier-first capabilities",
+                        "Ecosystem effects: open weights invite global fine-tuning, auditing, and optimisation communities"
+                ],
+                "examples": [
+                        "Meta's Llama releases standardising the decoder-only blueprint for the open ecosystem",
+                        "The 2023 Llama 1 leak — the unplanned Big Bang of open-weight AI",
+                        "DeepSeek and Qwen demonstrating frontier-class open releases from China",
+                        "Enterprises self-hosting open models for GDPR/data-residency compliance",
+                        "Hugging Face as the distribution hub — billions of cumulative model downloads"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
                 "icon": "🧠💡",
                 "title": "Symbolic AI",
                 "subtitle": "Good Old-Fashioned AI (GOFAI)",
@@ -962,13 +985,15 @@ const CARDS = [
                         "Tokens can be words, subwords, or characters",
                         "Embeddings map to dense vector space",
                         "Similar words have similar vectors",
-                        "Foundation for all neural NLP"
+                        "Foundation for all neural NLP",
+                        "Tokenizer design carries a fairness dimension: non-Latin scripts often cost more tokens per sentence (the 'token penalty')"
                 ],
                 "examples": [
                         "Word2Vec (skip-gram, CBOW)",
                         "GloVe embeddings",
                         "BPE (Byte-Pair Encoding)",
-                        "BERT/GPT tokenizers"
+                        "BERT/GPT tokenizers",
+                        "Qwen's multilingual-first tokenizer reducing the penalty for CJK and Arabic scripts"
                 ]
         },
         {
@@ -2089,6 +2114,29 @@ const CARDS = [
                 "theme": "optimization",
                 "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
                 "themeName": "Optimization & Deployment",
+                "icon": "🗜️📱",
+                "title": "Quantization",
+                "subtitle": "Shrinking Models to Fit the Real World",
+                "definition": "The process of reducing the numerical precision of a model's weights — for example from 16-bit to 4-bit numbers — so it needs a fraction of the memory and compute, with only minor quality loss. Quantization is the technology that broke AI's cloud dependency: it is why a model that once needed a $30,000 server can run on a laptop, and why open-weight models became genuinely personal tools.",
+                "characteristics": [
+                        "Reduces precision of weights (and sometimes activations) — FP16 → INT8 → INT4 are common steps",
+                        "4-bit quantization typically cuts memory ~75% vs FP16 with modest quality loss",
+                        "Post-training quantization (fast, no retraining) vs quantization-aware training (better quality)",
+                        "Key enabler of on-device and edge AI — inference without a data centre",
+                        "Quality loss is uneven: smaller models and harder tasks degrade more"
+                ],
+                "examples": [
+                        "Llama 70B at 4-bit running on a single consumer GPU",
+                        "GGUF/llama.cpp ecosystem powering local AI on laptops and phones",
+                        "QLoRA — fine-tuning quantized models on a single GPU",
+                        "Apple and Qualcomm on-device models quantized for phone NPUs",
+                        "INT8 KV-cache quantization reducing long-context memory pressure"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
                 "icon": "🔬⚖️",
                 "title": "A/B Testing for Models",
                 "subtitle": "Comparing in Production",
@@ -2333,14 +2381,39 @@ const CARDS = [
                         "Uses tools and APIs to extend capabilities (function calling)",
                         "Maintains context and memory across interactions",
                         "Reasons about actions and their consequences",
-                        "Can self-critique and refine approaches iteratively"
+                        "Can self-critique and refine approaches iteratively",
+                        "Long-horizon reasoning: pursuing goals across hundreds of intermediate steps with self-correction"
                 ],
                 "examples": [
                         "AutoGPT (autonomous task completion)",
                         "LangChain agents (orchestrating LLM capabilities)",
                         "ReAct (reasoning + acting framework)",
                         "Function calling in GPT-4/Claude",
-                        "BabyAGI (autonomous task management)"
+                        "BabyAGI (autonomous task management)",
+                        "Reported twelve-hour autonomous runs iterating on a problem until a verified solution emerges"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
+                "icon": "🐝🤖",
+                "title": "Agent Swarm",
+                "subtitle": "A Coordinated Digital Workforce",
+                "definition": "A configuration in which multiple specialised AI agents work on a problem in parallel — one planning, others executing sub-tasks, another critiquing — coordinated by an orchestrating agent. Formally known as multi-agent systems, the swarm pattern marks the shift from a model that answers to a workforce that executes: humans move from doing the task to briefing, constraining, and auditing the swarm.",
+                "characteristics": [
+                        "Specialised roles: manager, researcher, coder, critic — each an agent instance with its own focus",
+                        "Interleaved execution: agents pause to run code or use tools, check results, then continue — thinking while doing",
+                        "Verification-based generation: hypotheses tested against real outcomes rather than just predicted",
+                        "Parallelism compresses wall-clock time on complex tasks; orchestration keeps outputs aligned",
+                        "Autonomy spectrum: HITL (approve each step) → HOTL (monitor and intervene) → swarm (constrain and audit) — the human role relocates, never disappears"
+                ],
+                "examples": [
+                        "Claude Code and similar tools delegating sub-tasks to parallel sub-agents",
+                        "Software teams of agents: one on security review, several on parallel implementation, one auditing",
+                        "Long-horizon runs iterating autonomously for hours until a verified solution emerges",
+                        "Research swarms splitting literature search, extraction, and synthesis",
+                        "Contrast: human-in-the-loop orchestration — a person routing work between specialised AI tools is the coordination layer; a swarm automates that layer, relocating human judgement to constraints and audit"
                 ]
         },
         {
@@ -2990,6 +3063,29 @@ const CARDS = [
                 ]
         },
         {
+                "theme": "hardware",
+                "themeColor": "linear-gradient(135deg, #232526 0%, #414345 100%)",
+                "themeName": "AI Hardware & Infrastructure",
+                "icon": "🏛️🧠",
+                "title": "Sovereign AI",
+                "subtitle": "National Control of the Intelligence Stack",
+                "definition": "The capability of a nation (or organisation) to run, adapt, and govern AI on its own infrastructure, under its own laws, reflecting its own language and values — rather than depending on foreign providers' APIs. Open-weight models plus efficiency innovations made this practical: inference autonomy no longer requires frontier-scale compute, ending what some analysts called 'digital vassalage'.",
+                "characteristics": [
+                        "Rests on three pillars: compute access, model weights, and domestic data governance",
+                        "Open-weight models provide the technological exit from API dependence",
+                        "Efficiency techniques (MLA, quantization) enable capable AI on older or embargo-compliant hardware",
+                        "National foundation models fine-tuned on local language, law, and cultural records",
+                        "Sovereignty applies at organisational scale too: hospitals, banks, and pharma self-hosting for data control"
+                ],
+                "examples": [
+                        "UK sovereign compute investment (AIRDS, AI Opportunities Action Plan)",
+                        "National foundation models emerging across the Middle East, Southeast Asia, and South America",
+                        "EU data-residency requirements driving self-hosted open-model adoption",
+                        "Qwen's multilingual-first design serving non-Latin-script language communities",
+                        "NHS-type settings where patient data cannot leave national infrastructure"
+                ]
+        },
+        {
                 "theme": "transformer",
                 "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
                 "themeName": "Transformer Architecture",
@@ -3046,14 +3142,16 @@ const CARDS = [
                         "Only activates a small subset of experts per input (sparse activation)",
                         "Enables scaling to trillion-parameter models efficiently",
                         "Each expert can specialize in different patterns or tasks",
-                        "Gating network learns to route inputs to appropriate experts"
+                        "Gating network learns to route inputs to appropriate experts",
+                        "Fine-Grained MoE (DeepSeek): hundreds of tiny experts with only the most relevant slice activated per token"
                 ],
                 "examples": [
                         "Switch Transformers (1.6 trillion parameters)",
                         "GShard (600 billion parameter translation model)",
                         "GPT-4 (reportedly uses MoE)",
                         "Mixtral 8x7B (open-source MoE model)",
-                        "Expert Choice Routing (improved gating mechanism)"
+                        "Expert Choice Routing (improved gating mechanism)",
+                        "DeepSeek-V3: 671 billion total parameters, only ~37 billion active per token"
                 ]
         },
         {
@@ -3150,6 +3248,29 @@ const CARDS = [
                 "theme": "transformer",
                 "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
                 "themeName": "Transformer Architecture",
+                "icon": "🔦📜",
+                "title": "Sliding Window Attention (SWA)",
+                "subtitle": "A Moving Spotlight Over the Text",
+                "definition": "An attention pattern in which each token attends only to a fixed window of recent tokens rather than the entire sequence, cutting the quadratic cost of full attention down to linear. Distant context still flows forward indirectly, layer by layer — like a summary passed along a chain — letting models handle long documents without attending to every word at once.",
+                "characteristics": [
+                        "Each token attends to a fixed window (e.g. 4,096 tokens) instead of the full sequence",
+                        "Reduces attention cost from O(n²) toward O(n×w) — the core long-context economics",
+                        "Information beyond the window propagates through stacked layers — the receptive field grows with depth",
+                        "Often combined with full attention on selected layers or tokens for global coherence",
+                        "Popularised in open models by Mistral 7B"
+                ],
+                "examples": [
+                        "Mistral 7B — SWA as a headline architectural feature",
+                        "Longformer and BigBird — earlier sparse-attention research the technique builds on",
+                        "Handling 100-page documents without quadratic memory blow-up",
+                        "Hybrid schemes: sliding window locally + periodic global attention tokens",
+                        "Streaming applications where only recent context matters most"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
                 "icon": "📍🔢",
                 "title": "Positional Encoding",
                 "subtitle": "Giving the Model a Sense of Order",
@@ -3167,6 +3288,29 @@ const CARDS = [
                         "RoPE enabling Llama 3 to handle 128K token context windows",
                         "ALiBi (Attention with Linear Biases) allowing models to generalise beyond training length",
                         "Without positional encoding: dog bites man and man bites dog indistinguishable to model"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "🪟📏",
+                "title": "Context Window",
+                "subtitle": "How Much the Model Can Hold in Mind",
+                "definition": "The maximum amount of text — measured in tokens — that a model can process in a single pass. Everything the model 'knows' about your conversation must fit inside this window; anything beyond it is invisible. Context windows have grown from 512 tokens (BERT) to millions, but raw size is only half the story — contextual stability, the ability to actually use distant information accurately, is the harder engineering problem.",
+                "characteristics": [
+                        "Measured in tokens — roughly three-quarters of a word each in English",
+                        "Constrained by positional encoding scheme, KV cache memory, and attention cost together",
+                        "Lost in the middle: accuracy often dips for information buried mid-context",
+                        "Contextual stability tested via needle-in-a-haystack retrieval benchmarks",
+                        "Long context competes with RAG as a strategy: hold everything in mind vs look things up"
+                ],
+                "examples": [
+                        "BERT (2018): 512 tokens → GPT-4 Turbo: 128K → Gemini 1.5: 1M+ tokens",
+                        "Kimi's reported multi-million-token windows via Kimi Delta Attention (KDA)",
+                        "Reading an entire codebase or corporate library in a single pass",
+                        "RoPE extensions and ALiBi enabling length extrapolation beyond training",
+                        "A 128K window ≈ a 300-page novel held in working memory"
                 ]
         },
         {
@@ -3235,7 +3379,8 @@ const CARDS = [
                         "Llama 3: 15 trillion tokens, requiring Meta's 24,000-GPU clusters",
                         "Chinchilla scaling laws (DeepMind, 2022) — optimal token-to-parameter ratios reshaping how labs train",
                         "Data pipelines filtering Common Crawl from petabytes to curated training corpora",
-                        "Checkpointing every few hours — losing a week of training to a fault costs millions"
+                        "Checkpointing every few hours — losing a week of training to a fault costs millions",
+                        "DeepSeek-V3 reportedly trained for ~$5.6M in compute — the 'DeepSeek Shock' — though total hardware spend estimated far higher (~$500M), showing efficiency and capex are different questions"
                 ]
         },
         {
@@ -3259,6 +3404,29 @@ const CARDS = [
                         "Multi-Query Attention (MQA) sharing KV heads to reduce cache memory footprint",
                         "Grouped Query Attention (GQA) in Llama 2/3 balancing MQA efficiency with quality",
                         "Prefix caching reusing KV cache across requests with shared system prompts"
+                ]
+        },
+        {
+                "theme": "transformer",
+                "themeColor": "linear-gradient(135deg, #E8471A 0%, #F5A623 100%)",
+                "themeName": "Transformer Architecture",
+                "icon": "🗜️💾",
+                "title": "Multi-head Latent Attention (MLA)",
+                "subtitle": "Compressing the Model's Short-Term Memory",
+                "definition": "An attention variant that compresses the Key and Value vectors into a smaller latent representation before caching them, dramatically shrinking the KV cache's memory footprint. Pioneered by DeepSeek, MLA reportedly reduces attention memory overhead by over 90% — enabling long conversations on far less hardware and helping decouple frontier capability from massive compute budgets.",
+                "characteristics": [
+                        "Compresses K and V projections into a shared low-rank latent vector before caching",
+                        "Cache memory reduction of ~93% reported in DeepSeek-V2 vs standard multi-head attention",
+                        "Latent vectors decompressed on-the-fly during attention computation — trading a little compute for a lot of memory",
+                        "Enables longer context windows on the same GPU, or the same context on cheaper GPUs",
+                        "Part of the broader efficiency turn: algorithmic cleverness substituting for hardware scale"
+                ],
+                "examples": [
+                        "DeepSeek-V2 and V3 — the architectures that introduced and refined MLA",
+                        "The DeepSeek Shock (2025): frontier-class performance at a reported fraction of typical training cost",
+                        "Enabling long-context inference on export-restricted or older-generation GPUs",
+                        "Contrast with Multi-Query and Grouped-Query Attention — earlier, simpler KV-sharing approaches",
+                        "Open publication of MLA allowing global adoption within months of release"
                 ]
         },
         {
