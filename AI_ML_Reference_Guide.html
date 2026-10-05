@@ -264,6 +264,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .theme-xai { background: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%); }
         .theme-transformer { background: linear-gradient(135deg, #E8471A 0%, #F5A623 100%); }
         .theme-hardware { background: linear-gradient(135deg, #232526 0%, #414345 100%); }
+        .theme-governance { background: linear-gradient(135deg, #7F5539 0%, #C9A66B 100%); }
         
         .flashcard-container {
             perspective: 1500px;
@@ -585,13 +586,61 @@ const CARDS = [
                         "Ability to perceive the environment",
                         "Process information and make decisions",
                         "Learn from experience",
-                        "Adapt to new inputs"
+                        "Adapt to new inputs",
+                        "An umbrella term, not one technology: rules, prediction, perception, generation and agents all count as AI",
+                        "The \"AI effect\": once a technique works reliably, people often stop calling it AI (spam filters, route-finding)"
                 ],
                 "examples": [
                         "Virtual assistants (Siri, Alexa)",
                         "Recommendation systems (Netflix, Spotify)",
                         "Autonomous vehicles",
                         "Fraud detection systems"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🌈🤖",
+                "title": "The AI Spectrum",
+                "subtitle": "AI Is Many Technologies, Not One",
+                "definition": "A map of the different kinds of AI, sorted by what each system does. 'AI' covers everything from fixed rules written by experts to models that predict, perceive, retrieve, generate, decide and act. Each carries different risks, data needs and failure modes, so naming the kind of AI precisely is the first step in evaluating, governing or explaining it.",
+                "characteristics": [
+                        "Rule-based: expert systems and automated decision rules",
+                        "Predictive: classification, regression and risk scores",
+                        "Perceptive: vision, speech and sensing",
+                        "Retrieval and recommendation: search by meaning, recommenders, RAG",
+                        "Generative: text, images, audio and code",
+                        "Decision and agentic: reinforcement learning, planning, agents and swarms",
+                        "Cross-cutting axes: narrow versus general · discriminative versus generative · white-box versus black-box · degree of autonomy"
+                ],
+                "examples": [
+                        "Rule-based: Robodebt's income-averaging rules",
+                        "Predictive: credit scores and welfare-fraud risk models",
+                        "Perceptive: mapping poverty from satellite imagery",
+                        "Retrieval and recommendation: Netflix and Spotify recommendations; RAG over company documents",
+                        "Generative and agentic: ChatGPT and Claude; AlphaGo (decision); coding agents (agentic)"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🎨✨",
+                "title": "Generative AI",
+                "subtitle": "AI Capability",
+                "definition": "AI systems that can create new content (text, images, audio, video, code) by learning patterns from training data and generating novel outputs.",
+                "characteristics": [
+                        "Creates original content",
+                        "Learns from large datasets",
+                        "Multiple modalities (text, image, audio)",
+                        "Controllable via prompts"
+                ],
+                "examples": [
+                        "ChatGPT for text generation",
+                        "DALL-E, Midjourney for images",
+                        "GitHub Copilot for code",
+                        "Suno AI for music"
                 ]
         },
         {
@@ -740,6 +789,29 @@ const CARDS = [
                         "Spam email detection",
                         "House price prediction",
                         "Medical diagnosis from symptoms"
+                ]
+        },
+        {
+                "theme": "foundations",
+                "themeColor": "linear-gradient(135deg, #5B247A 0%, #1BCEDF 100%)",
+                "themeName": "AI & ML Foundations",
+                "icon": "🔮📊",
+                "title": "Predictive Analytics & Risk Scoring",
+                "subtitle": "Forecasting Outcomes for Individuals",
+                "definition": "Using models trained on historical data to estimate how likely a future event is for a person or case: default, fraud, reoffending, hospital readmission. The output is a score that triggers action. It's the kind of AI most used in public services, and the most contested, because a probability about a group becomes a decision about an individual.",
+                "characteristics": [
+                        "Usually supervised learning on historical outcomes, often with classical models such as logistic regression or gradient-boosted trees",
+                        "A threshold turns a score into action, and choosing that threshold is a policy decision",
+                        "The base-rate problem: when the event is rare, most people flagged will be false positives",
+                        "Historical labels encode past decisions, so models can reproduce past bias through feedback loops",
+                        "Performance should be reported by subgroup and compared with current practice, not an ideal"
+                ],
+                "examples": [
+                        "Credit scoring, the longest-established commercial risk score",
+                        "COMPAS and other criminal-justice reoffending scores",
+                        "Welfare and benefits fraud risk models",
+                        "Hospital readmission and sepsis early-warning scores",
+                        "Predictive policing tools forecasting crime hotspots"
                 ]
         },
         {
@@ -1161,7 +1233,8 @@ const CARDS = [
                         "Facial recognition systems",
                         "Autonomous vehicle perception",
                         "Medical image analysis",
-                        "Quality control in manufacturing"
+                        "Quality control in manufacturing",
+                        "Mapping poverty from satellite imagery where survey data is scarce (Jean et al., 2016)"
                 ]
         },
         {
@@ -1225,27 +1298,6 @@ const CARDS = [
                         "Photo filters and effects",
                         "Artistic rendering",
                         "Video stylization"
-                ]
-        },
-        {
-                "theme": "vision",
-                "themeColor": "linear-gradient(135deg, #38ef7d 0%, #11998e 100%)",
-                "themeName": "Vision & Media AI",
-                "icon": "🎨✨",
-                "title": "Generative AI",
-                "subtitle": "AI Capability",
-                "definition": "AI systems that can create new content (text, images, audio, video, code) by learning patterns from training data and generating novel outputs.",
-                "characteristics": [
-                        "Creates original content",
-                        "Learns from large datasets",
-                        "Multiple modalities (text, image, audio)",
-                        "Controllable via prompts"
-                ],
-                "examples": [
-                        "ChatGPT for text generation",
-                        "DALL-E, Midjourney for images",
-                        "GitHub Copilot for code",
-                        "Suno AI for music"
                 ]
         },
         {
@@ -1399,6 +1451,29 @@ const CARDS = [
                 "theme": "classical",
                 "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
                 "themeName": "Classical Methods",
+                "icon": "🧪🔗",
+                "title": "Causal Inference",
+                "subtitle": "From Correlation to Cause",
+                "definition": "Methods for establishing whether one thing actually causes another, rather than just occurring alongside it. Most machine learning learns correlations, which can break when circumstances change or when someone acts on them. Causal inference asks what would happen if we intervened, the question medicine and policy actually need answered.",
+                "characteristics": [
+                        "Pearl's ladder of causation: association (seeing) → intervention (doing) → counterfactuals (imagining)",
+                        "Confounders: hidden factors that drive both cause and effect, creating misleading correlations",
+                        "Randomised controlled trials remain the gold standard for establishing causation",
+                        "Causal diagrams (DAGs) make assumptions explicit and testable",
+                        "White-box by design: causal models expose their reasoning, unlike most black-box predictors"
+                ],
+                "examples": [
+                        "Clinical trials and health technology assessment: causal evidence as the basis of medicines approval",
+                        "Uplift modelling: finding who changes behaviour because of an intervention",
+                        "Policy evaluation through natural experiments and difference-in-differences studies",
+                        "Pearl & Mackenzie, The Book of Why (2018)",
+                        "Counterfactual explanations in XAI, drawing on causal reasoning"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
                 "icon": "🔍📉",
                 "title": "Principal Component Analysis",
                 "subtitle": "Dimensionality Reduction",
@@ -1519,6 +1594,29 @@ const CARDS = [
                         "Pattern recognition",
                         "Anomaly detection",
                         "Missing value imputation"
+                ]
+        },
+        {
+                "theme": "classical",
+                "themeColor": "linear-gradient(135deg, #F09819 0%, #EDDE5D 100%)",
+                "themeName": "Classical Methods",
+                "icon": "🍿🎧",
+                "title": "Recommender Systems",
+                "subtitle": "You Might Also Like…",
+                "definition": "Systems that predict what a person will want next (a film, song, product or post) from their own behaviour and that of similar people. They are the most widely used AI in everyday life, quietly shaping what billions of people watch, buy and read, which gives them influence well beyond convenience.",
+                "characteristics": [
+                        "Collaborative filtering: people who liked what you liked also liked this",
+                        "Content-based filtering: items similar to those you engaged with before",
+                        "Modern systems use deep learning and embeddings, trained on signals such as watch time and clicks",
+                        "The cold-start problem: new users and new items have no history to learn from",
+                        "Optimising for engagement can create filter bubbles and amplify extreme content"
+                ],
+                "examples": [
+                        "The Netflix Prize (2006–09): a $1M competition to improve film recommendations",
+                        "Spotify Discover Weekly and personalised playlists",
+                        "YouTube, TikTok and social-media feeds ranked by predicted engagement",
+                        "Amazon's \"customers who bought this also bought\" item-to-item recommendations",
+                        "The EU Digital Services Act: very large platforms must offer a feed not based on profiling"
                 ]
         },
         {
@@ -2093,6 +2191,29 @@ const CARDS = [
                 "theme": "optimization",
                 "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
                 "themeName": "Optimization & Deployment",
+                "icon": "🌊📉",
+                "title": "Concept Drift & Distribution Shift",
+                "subtitle": "When the World Moves On",
+                "definition": "The decline in a model's performance after deployment because the world no longer matches the data it learned from. Distribution shift means the inputs change, for example a new population or new equipment. Concept drift means the relationship between inputs and outcomes changes, for example as fraud tactics evolve. A model validated perfectly at launch can quietly become wrong.",
+                "characteristics": [
+                        "Data shift: the inputs change, for example trained on younger people and applied to older ones",
+                        "Concept drift: the pattern's meaning changes, so what predicted fraud last year may not this year",
+                        "Sudden drift (a pandemic, a policy change) versus gradual drift (slowly changing behaviour)",
+                        "Detection: monitor input statistics, prediction patterns and live accuracy against fresh outcomes",
+                        "Response: scheduled retraining, drift-triggered retraining, or a fallback to human decisions"
+                ],
+                "examples": [
+                        "COVID-19 (2020) breaking demand-forecasting and credit models trained on pre-pandemic behaviour",
+                        "Fraud detection: adversaries adapt, so yesterday's patterns lose predictive power",
+                        "Medical imaging models degrading when a hospital changes scanner manufacturer",
+                        "Historical training data under-representing today's population",
+                        "Post-market monitoring duties for high-risk AI under the EU AI Act"
+                ]
+        },
+        {
+                "theme": "optimization",
+                "themeColor": "linear-gradient(135deg, #20E2D7 0%, #F9FEA5 100%)",
+                "themeName": "Optimization & Deployment",
                 "icon": "📦⚡",
                 "title": "Model Compression",
                 "subtitle": "Optimizing for Deployment",
@@ -2221,6 +2342,29 @@ const CARDS = [
                 "theme": "advanced",
                 "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
                 "themeName": "Advanced Techniques",
+                "icon": "🧭🗄️",
+                "title": "Semantic Search & Vector Databases",
+                "subtitle": "Searching by Meaning, Not Keywords",
+                "definition": "Search that finds results by meaning rather than exact words. Items are converted into embeddings (vectors in which similar meanings sit close together) and stored in a vector database. A query is embedded the same way, and the nearest vectors are returned. It's the retrieval engine behind RAG, modern search and many recommenders.",
+                "characteristics": [
+                        "Embeddings place similar meanings near each other in high-dimensional space",
+                        "Similarity is measured by the angle (cosine similarity) or distance between vectors",
+                        "Approximate nearest-neighbour indexes make search fast across billions of vectors",
+                        "Catches what keywords miss (\"heart attack\" ↔ \"myocardial infarction\") but can miss exact terms keywords find",
+                        "Hybrid search combines semantic and keyword retrieval for the best of both"
+                ],
+                "examples": [
+                        "The retrieval step in RAG: grounding an LLM in an organisation's own documents",
+                        "Vector databases and libraries: FAISS, Pinecone, Weaviate, pgvector",
+                        "Searching clinical literature by concept rather than exact phrasing",
+                        "Image search by visual similarity",
+                        "Detecting near-duplicate documents across large collections"
+                ]
+        },
+        {
+                "theme": "advanced",
+                "themeColor": "linear-gradient(135deg, #C471F5 0%, #FA71CD 100%)",
+                "themeName": "Advanced Techniques",
                 "icon": "🔍📚",
                 "title": "Retrieval-Augmented Generation (RAG)",
                 "subtitle": "LLM Enhancement",
@@ -2292,13 +2436,15 @@ const CARDS = [
                         "Precision: quality of positive predictions",
                         "Recall: coverage of actual positives",
                         "Trade-off between the two",
-                        "F1-score combines both harmonically"
+                        "F1-score combines both harmonically",
+                        "Base rates matter: when the target is rare, even an accurate model's flags are mostly false positives"
                 ],
                 "examples": [
                         "Information retrieval systems",
                         "Medical diagnosis (recall critical)",
                         "Fraud detection (precision critical)",
-                        "Search engine evaluation"
+                        "Search engine evaluation",
+                        "Screening millions of benefit claims for rare fraud: a small false-positive rate still flags thousands of innocent claimants"
                 ]
         },
         {
@@ -2521,7 +2667,8 @@ const CARDS = [
                         "Essential for regulatory compliance (FDA, EMA)",
                         "Builds trust in AI systems",
                         "Identifies model biases and errors",
-                        "Critical for high-stakes domains (healthcare, finance)"
+                        "Critical for high-stakes domains (healthcare, finance)",
+                        "Best treated as one layer of assurance with known limits: post-hoc explanations can rationalise rather than reveal a model's reasoning"
                 ],
                 "examples": [
                         "Medical diagnosis explanations",
@@ -2726,7 +2873,7 @@ const CARDS = [
                 "characteristics": [
                         "FDA/EMA requirements for medical AI",
                         "EU AI Act Article 13 transparency obligations",
-                        "GDPR \"right to explanation\" (Article 22)",
+                        "EU GDPR Art. 22 and UK GDPR Arts 22A–22D (from February 2026): safeguards on solely automated decisions",
                         "Industry-specific guidelines",
                         "Audit trail and documentation requirements"
                 ],
@@ -2735,7 +2882,8 @@ const CARDS = [
                         "EMA requirements for AI drug discovery",
                         "NICE HTA evidence standards",
                         "EU AI Act high-risk classification",
-                        "ISO 27001 AI governance frameworks"
+                        "ISO 27001 AI governance frameworks",
+                        "EU AI Act Digital Omnibus (2026): high-risk duties deferred to December 2027"
                 ]
         },
         {
@@ -3451,6 +3599,167 @@ const CARDS = [
                         "Beam search in machine translation selecting the highest-probability full sentence",
                         "Detokenisation stitching subword tokens (“play”, “-ing”) back into “playing”"
                 ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "🗂️⚙️",
+                "title": "Automated Decision-Making (ADM)",
+                "subtitle": "When the System Decides",
+                "definition": "The use of computer systems to make, or substantially shape, decisions about people: eligibility, risk, entitlement, enforcement. ADM is broader than AI. Many high-profile failures involved simple rules or data-matching rather than machine learning, which is why naming the kind of system matters when diagnosing what went wrong.",
+                "characteristics": [
+                        "Ranges from fixed rules and data-matching, through statistical scoring, to machine-learning prediction",
+                        "Fully automated (the system decides) versus decision support (a human decides with the system's recommendation)",
+                        "Scale amplifies error: one flawed rule is applied identically to every case, fast",
+                        "Harms concentrate on those least able to contest them, often welfare claimants, migrants and defendants",
+                        "Failures usually trace to policy and governance design that automation then amplifies, not to the code alone"
+                ],
+                "examples": [
+                        "Robodebt (Australia, 2016–19): automated income averaging raised unlawful welfare debts; a Royal Commission reported in 2023",
+                        "SyRI (Netherlands): a welfare-fraud risk system ruled unlawful by the Hague District Court in 2020",
+                        "The Dutch childcare benefits scandal: risk profiling wrongly flagged thousands of families; the government resigned in 2021",
+                        "UK GDPR Articles 22A–22D (from February 2026): solely automated significant decisions permitted, subject to safeguards",
+                        "The UK Algorithmic Transparency Recording Standard: a public register of government algorithmic tools"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "⚖️🧮",
+                "title": "Algorithmic Bias & Fairness",
+                "subtitle": "When Models Learn Our Inequalities",
+                "definition": "Systematic skew in a model's outputs that disadvantages particular groups. Bias enters through data that reflects historical inequality, through proxy variables that stand in for protected characteristics, and through choices about what to optimise. Fairness work tries to measure and correct this, complicated by the fact that common fairness definitions conflict and cannot all be satisfied at once.",
+                "characteristics": [
+                        "Sources: data bias (who is represented), measurement bias (what is recorded) and systemic bias (inequality built into history)",
+                        "Proxies: postcode, spending or healthcare cost can stand in for race or class even when protected attributes are removed",
+                        "Common fairness metrics, such as equal error rates and equal calibration, conflict when groups' base rates differ",
+                        "Subgroup testing: report error rates for each affected group, not just overall accuracy",
+                        "Mitigation can happen before (data), during (training) or after (decision thresholds) the model is built"
+                ],
+                "examples": [
+                        "COMPAS (ProPublica, 2016): reoffending scores with unequal false-positive rates by race",
+                        "Obermeyer et al. (2019): a US health algorithm used cost as a proxy for need, understating Black patients' illness",
+                        "Amazon's experimental recruiting tool (2018): scrapped after it learned to downgrade CVs mentioning women",
+                        "Kleinberg et al. (2016) and Chouldechova (2017): proofs that key fairness criteria can't all hold together",
+                        "Gender Shades (Buolamwini & Gebru, 2018): facial-analysis accuracy gaps across skin tone and gender"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "🙈✅",
+                "title": "Automation Bias",
+                "subtitle": "Trusting the Machine Over Your Own Judgement",
+                "definition": "The tendency to over-rely on automated outputs: following a system's recommendation even when it is wrong, or missing problems it failed to flag. It turns oversight into a rubber stamp. The reviewer is present, but the judgement has quietly moved to the machine, which is why algorithmic errors often survive human review.",
+                "characteristics": [
+                        "Errors of commission (following wrong advice) and errors of omission (missing what the system didn't flag)",
+                        "Automation complacency: vigilance declines when monitoring a system that is usually right",
+                        "Worse under time pressure, high workload, and when the system appears confident",
+                        "Research suggests people may follow algorithmic advice more readily when it confirms their existing expectations",
+                        "The link to bias: algorithmic bias is what a rubber-stamping reviewer fails to catch"
+                ],
+                "examples": [
+                        "Skitka, Mosier & Burdick (1999): the classic studies of commission and omission errors",
+                        "Parasuraman & Manzey (2010): the review linking complacency and automation bias",
+                        "Pilots and drivers over-trusting autopilot and navigation systems",
+                        "Clinicians accepting an AI measurement or flag without an independent check",
+                        "Officials approving algorithmically flagged cases at volume: oversight in name only"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "👤🔁",
+                "title": "Human-in-the-Loop (HITL)",
+                "subtitle": "Making Oversight Real",
+                "definition": "Designing AI systems so that a human reviews, can override, or must approve outputs at defined points. HITL is a safeguard only if the involvement is meaningful: a reviewer with the time, information, expertise and authority to disagree. Without that, the person in the loop becomes an observer, present but not deciding.",
+                "characteristics": [
+                        "A spectrum: human-in-the-loop (approves each decision) → human-on-the-loop (monitors, can intervene) → human-out-of-the-loop (fully automated)",
+                        "Meaningful: the reviewer can and does challenge outputs, not just confirm them",
+                        "Independent: checks use a different method, model or person, because AI checking AI can produce circular errors",
+                        "Proportionate: the more serious the consequences for the person affected, the stronger the review",
+                        "The deskilling trap: if AI absorbs the junior work that builds expertise, future reviewers lack the judgement oversight depends on"
+                ],
+                "examples": [
+                        "UK GDPR Art. 22A (2026): a decision is \"solely automated\" if there is no meaningful human involvement",
+                        "ICO guidance: token human involvement does not count as meaningful review",
+                        "EU AI Act human-oversight requirements for high-risk systems",
+                        "RLHF: humans in the loop during training rather than at decision time",
+                        "The Agent Swarm contrast: swarms move human judgement to constraints and audit rather than removing it"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "🧾🔍",
+                "title": "Algorithmic Accountability",
+                "subtitle": "Who Answers When the System Is Wrong?",
+                "definition": "The principle that someone identifiable must answer for an algorithmic system's decisions: able to explain them, justify them and put them right. It depends on clear ownership of each step, records detailed enough to reconstruct any decision, and a route for affected people to challenge outcomes. When responsibility is spread across vendors, developers and operators, it can vanish entirely.",
+                "characteristics": [
+                        "Named roles: a responsible owner at each stage — design, procurement, deployment, review",
+                        "Audit trails: logs sufficient to reconstruct and explain any individual decision afterwards",
+                        "Contestability: people can learn a decision was made, challenge it and get it reconsidered",
+                        "Moral crumple zone (Elish, 2019): blame tends to land on the nearest human operator, not the system's designers",
+                        "A tension to resolve explicitly: auditability needs data retained, while privacy wants it minimised"
+                ],
+                "examples": [
+                        "The UK Algorithmic Transparency Recording Standard: mandatory for central government departments since 2024",
+                        "The explainability test: could the responsible official justify this decision to a parliamentary committee?",
+                        "The Uber autonomous-vehicle fatality (2018): the backup safety driver faced criminal charges, the company did not",
+                        "Model cards and datasheets: standard documentation of a model's intended use, data and limits",
+                        "Aviation's blame history: automation praised for successes, human operators blamed for failures"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "📋🛡️",
+                "title": "AI Evaluation & Assurance",
+                "subtitle": "Evidence Before Deployment",
+                "definition": "The testing that should happen before, and continue after, an AI system is released: measuring performance, probing failure modes, checking effects on different groups and red-teaming for misuse. Assurance turns this evidence into justified confidence that a system is fit for purpose. Its weakness is maturity: for most AI systems, proven and standardised assurance methods don't yet exist.",
+                "characteristics": [
+                        "Pre-deployment testing on realistic data, not just benchmark scores",
+                        "Subgroup error analysis: who the system fails, not only how often",
+                        "Red-teaming: deliberately attacking a system to find harmful or unexpected behaviour",
+                        "Worst-case analysis: name the most damaging plausible failure, not just the average error rate",
+                        "Post-market monitoring: evaluation continues as data and use change"
+                ],
+                "examples": [
+                        "The UK AI Security Institute (renamed from AI Safety Institute, 2025): pre-deployment testing of frontier models",
+                        "The medicines parallel: phased trials and regulatory approval before a drug reaches patients",
+                        "EU AI Act conformity assessment for high-risk systems",
+                        "Model cards documenting tested performance and known limitations",
+                        "Whittlestone & Clarke (2022): no proven effective methods yet exist for assuring most AI systems"
+                ]
+        },
+        {
+                "theme": "governance",
+                "themeColor": "linear-gradient(135deg, #7F5539 0%, #C9A66B 100%)",
+                "themeName": "AI in Society & Governance",
+                "icon": "🚦📜",
+                "title": "Risk-Based AI Regulation",
+                "subtitle": "Rules Scaled to the Stakes",
+                "definition": "A regulatory approach that sorts AI uses by the harm they could cause and sets obligations to match: banning the most dangerous, imposing strict duties on high-risk uses, and lighter transparency rules elsewhere. The EU AI Act is the leading example. Like medicines regulation, its logic is ex ante: show safety before deployment, rather than compensate after harm.",
+                "characteristics": [
+                        "EU AI Act tiers: unacceptable (prohibited), high-risk (strict duties), limited risk (transparency), minimal risk (no new duties)",
+                        "It regulates the use, not the technology: the same model can be minimal-risk in one setting and high-risk in another",
+                        "High-risk duties: risk management, data governance, documentation, human oversight, accuracy and robustness",
+                        "Ex ante duties surface design flaws before harm reaches people",
+                        "The alternative: the UK's principles-based approach, led by existing sector regulators"
+                ],
+                "examples": [
+                        "EU AI Act (Regulation 2024/1689): prohibitions from February 2025; general-purpose AI duties from August 2025",
+                        "Digital Omnibus (in force July 2026): Annex III high-risk duties deferred to 2 December 2027, Annex I to 2 August 2028",
+                        "Article 50 transparency duties applied from 2 August 2026",
+                        "Annex III high-risk areas include credit scoring, recruitment, education, essential services and law enforcement",
+                        "The UK approach: regulators such as the ICO, MHRA and FCA applying cross-sector AI principles"
+                ]
         }
 ];
 
@@ -3473,7 +3782,8 @@ const CARDS = [
             {id: 'vision', name: 'Vision & Media AI', class: 'theme-vision'},
             {id: 'advanced', name: 'Advanced Techniques', class: 'theme-advanced'},
             {id: 'xai', name: 'XAI & Interpretability', class: 'theme-xai'},
-            {id: 'optimization', name: 'Optimization & Deployment', class: 'theme-optimization'}
+            {id: 'optimization', name: 'Optimization & Deployment', class: 'theme-optimization'},
+            {id: 'governance', name: 'AI in Society & Governance', class: 'theme-governance'}
         ];
 
         function renderCard(index) {
